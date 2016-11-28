@@ -1,0 +1,158 @@
+# Midterm Exam
+
+What to submit:
+An **R notebook/html document** that contains the script/output for each question.File name convention for submissions: lastname_firstname_midterm.zip. You have 60 minutes (8:30-9:30 am) to complete the exam. There will be a 10% penalty per 10 minutes for late submissions.  
+
+## Question 1 (25 pt.)
+The **iris** data set in the **datasets** package contains 150 cases (rows) and 5 variables (columns). 
+
+### Question 1a
+Randomly select half of the cases as training dataset and the remaining half as test dataset. 
+
+```{r, message=FALSE, warning=FALSE}
+library(datasets)
+df <- iris
+set.seed(100)
+nrow <- nrow(df)
+id <- 1:nrow
+train.index <- sort(sample(id,nrow/2))
+train.index
+test.index <- id[-train.index]
+test.index
+
+train.df <- df[train.index,]
+test.df <- df[test.index,]
+
+if(!(require(DT))) install.packages("DT")
+library(DT)
+datatable(train.df,caption = "Training dataset",options = list(pageLength = 5))
+datatable(test.df,caption = "Test dataset",options = list(pageLength = 5))
+```
+
+### Question 1b
+Find out the number of each species (*setosa, versicolor, and virginica*) in the training and test datasets, respectively. 
+
+```{r}
+table(train.df$Species)
+table(test.df$Species)
+```
+
+## Question 2 (25 pt.)
+Assume that the probabilities of boy and girl births are **0.505** and **0.495**, respectively. 
+
+### Question 2a
+What’s the probability of having exactly 50 boys out of 100 births? **(X = 50)**
+```{r}
+answer_2a <- dbinom(50,size = 100,prob = 0.505)
+print(answer_2a)
+```
+The answer is **`r answer_2a`**
+
+### Question 2b
+What’s the probability of having more than 60 boys out of 100 births? **(X > 60)**
+
+```{r}
+answer_2b <- pbinom(60,size = 100,prob = 0.505,lower.tail = FALSE)
+print(answer_2b)
+```
+
+The answer is **`r answer_2b`**
+
+### Question 2c
+What’s the probability of having between 40 and 60 boys out of 100 births? **(40 < X ≤ 60)**
+
+```{r}
+answer_2c <- diff(pbinom(c(40,60),size = 100,prob = 0.505))
+print(answer_2c)
+```
+The answer is **`r answer_2c`**
+
+### Question 2d
+Plot the density function of the number of boy births out of 100. 
+
+```{r}
+x <- 0:100
+y <- dbinom(x,size = 100,prob = 0.505)
+plot(x,y,type = "b",pch=16)
+```
+
+
+
+## Question 3 (25 pt.)
+If cars arrive randomly at a traffic light following posission distribution at the rate of five every ten seconds. 
+
+### Question 3a
+What the probability that exactly 30 cars arrive in the next minute (60 seconds)? (X=30)
+```{r}
+answer_3a <- dpois(30,lambda = 5*6)
+print(answer_3a)
+```
+The answer is **`r answer_3a`**
+
+### Question 3b
+What’s the probability that more than 40 cars arrive in the next minute (60 seconds)? (X>40)
+```{r}
+answer_3b <- ppois(40,lambda = 5*6,lower.tail = FALSE)
+print(answer_3b)
+```
+The answer is **`r answer_3b`**
+
+### Question 3c
+What’s the probability that between 20 and 40 cars arrive in the next minute (60 seconds)? 
+```{r}
+answer_3c <- diff(ppois(c(20,40),lambda = 5*6))
+print(answer_3c)
+```
+The answer is **`r answer_3c`**
+
+### Question 3d
+Plot the density function of 0-100 cars arriving in the next minute (60 seconds).
+
+```{r}
+x <- 0:100
+y <- dpois(x,lambda = 30)
+plot(x,y,type = "b",pch=16)
+```
+
+
+
+## Question 4 (25 pt.)
+The number of customers at a bank each day is found to be normally distributed with mean µ = 250 and standard deviation σ=80. 
+
+### Question 4a
+
+What fraction of days will have more than 300 customers? (X>300)
+```{r}
+answer_4a <- pnorm(300,mean = 250,sd = 80,lower.tail = FALSE)
+print(answer_4a)
+```
+The answer is **`r answer_4a`**
+
+### Question 4b
+
+What number of customers will be exceeded 10% of the time?
+
+```{r}
+answer_4b <- qnorm(0.1,mean = 250,sd = 80,lower.tail = FALSE)
+print(answer_4b)
+```
+The answer is **`r answer_4b`**
+
+### Question 4c
+What fraction of days will have between 200 and 300 customers? (200 < X≤ 300)
+```{r}
+answer_4c <- diff(pnorm(c(200,300),mean = 250,sd = 80))
+print(answer_4c)
+```
+The answer is **`r answer_4c`**
+
+### Question 4d
+Plot the density function and create the shaded area between 200 and 300 customers.
+```{r}
+curve(dnorm(x,mean = 250,sd = 80),from = 0,to = 500)
+cord.x <- c(200,seq(200,300,by = 1),300)
+cord.y <- c(0,dnorm(seq(200,300,by = 1),mean = 250,sd = 80),0)
+polygon(cord.x,cord.y,col="red")
+
+```
+

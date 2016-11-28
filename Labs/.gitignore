@@ -1,0 +1,10 @@
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+/_main_files/*
+_bookdown_files/*
+_*.Rmd
+_*.html
+
+

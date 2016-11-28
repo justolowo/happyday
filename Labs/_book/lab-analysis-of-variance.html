@@ -1,0 +1,1026 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Statistics for Geography (GEOG 533)</title>
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+  <meta name="description" content="Statistics for Geography (GEOG 533)">
+  <meta name="generator" content="bookdown 0.1 and GitBook 2.6.7">
+
+  <meta property="og:title" content="Statistics for Geography (GEOG 533)" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Statistics for Geography (GEOG 533)" />
+  
+  
+  
+
+<meta name="author" content="Dr. Qiusheng Wu">
+
+<meta name="date" content="2016-11-17">
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+});
+</script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="lab-inferential-statistics.html">
+<link rel="next" href="lab-correlation.html">
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+<script src="libs/htmlwidgets-0.7/htmlwidgets.js"></script>
+<script src="libs/datatables-binding-0.2/datatables.js"></script>
+<link href="libs/dt-core-1.10.12/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="libs/dt-core-1.10.12/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="libs/dt-core-1.10.12/js/jquery.dataTables.min.js"></script>
+<link href="libs/leaflet-0.7.3/leaflet.css" rel="stylesheet" />
+<script src="libs/leaflet-0.7.3/leaflet.js"></script>
+<link href="libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet" />
+<script src="libs/leaflet-binding-1.0.1/leaflet.js"></script>
+<script src="libs/leaflet-providers-1.0.27/leaflet-providers.js"></script>
+<script src="libs/leaflet-providers-plugin-1.0.1/leaflet-providers-plugin.js"></script>
+<link href="libs/leaflet-markercluster-0.4.0/MarkerCluster.css" rel="stylesheet" />
+<link href="libs/leaflet-markercluster-0.4.0/MarkerCluster.Default.css" rel="stylesheet" />
+<script src="libs/leaflet-markercluster-0.4.0/leaflet.markercluster.js"></script>
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+</head>
+
+<body>
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
+<li class="chapter" data-level="" data-path="about-the-author.html"><a href="about-the-author.html"><i class="fa fa-check"></i>About the Author</a></li>
+<li class="chapter" data-level="1" data-path="lab-descriptive-statistics.html"><a href="lab-descriptive-statistics.html"><i class="fa fa-check"></i><b>1</b> Lab - Descriptive Statistics</a><ul>
+<li class="chapter" data-level="1.1" data-path="lab-descriptive-statistics.html"><a href="lab-descriptive-statistics.html#question-1"><i class="fa fa-check"></i><b>1.1</b> Question 1</a><ul>
+<li class="chapter" data-level="1.1.1" data-path="lab-descriptive-statistics.html"><a href="lab-descriptive-statistics.html#question-1a"><i class="fa fa-check"></i><b>1.1.1</b> Question 1a</a></li>
+<li class="chapter" data-level="1.1.2" data-path="lab-descriptive-statistics.html"><a href="lab-descriptive-statistics.html#question-1b"><i class="fa fa-check"></i><b>1.1.2</b> Question 1b</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="lab-descriptive-statistics.html"><a href="lab-descriptive-statistics.html#question-2"><i class="fa fa-check"></i><b>1.2</b> Question 2</a></li>
+<li class="chapter" data-level="1.3" data-path="lab-descriptive-statistics.html"><a href="lab-descriptive-statistics.html#question-3"><i class="fa fa-check"></i><b>1.3</b> Question 3</a></li>
+<li class="chapter" data-level="1.4" data-path="lab-descriptive-statistics.html"><a href="lab-descriptive-statistics.html#question-4"><i class="fa fa-check"></i><b>1.4</b> Question 4</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="lab-discrete-probability.html"><a href="lab-discrete-probability.html"><i class="fa fa-check"></i><b>2</b> Lab - Discrete Probability</a><ul>
+<li class="chapter" data-level="2.1" data-path="lab-discrete-probability.html"><a href="lab-discrete-probability.html#question-1-1"><i class="fa fa-check"></i><b>2.1</b> Question 1</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="lab-discrete-probability.html"><a href="lab-discrete-probability.html#solution-1"><i class="fa fa-check"></i><b>2.1.1</b> Solution 1</a></li>
+<li class="chapter" data-level="2.1.2" data-path="lab-discrete-probability.html"><a href="lab-discrete-probability.html#solution-2"><i class="fa fa-check"></i><b>2.1.2</b> Solution 2</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="lab-discrete-probability.html"><a href="lab-discrete-probability.html#question-2-1"><i class="fa fa-check"></i><b>2.2</b> Question 2</a></li>
+<li class="chapter" data-level="2.3" data-path="lab-discrete-probability.html"><a href="lab-discrete-probability.html#question-3-1"><i class="fa fa-check"></i><b>2.3</b> Question 3</a></li>
+<li class="chapter" data-level="2.4" data-path="lab-discrete-probability.html"><a href="lab-discrete-probability.html#question-4-1"><i class="fa fa-check"></i><b>2.4</b> Question 4</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="lab-continuous-probability.html"><a href="lab-continuous-probability.html"><i class="fa fa-check"></i><b>3</b> Lab - Continuous Probability</a><ul>
+<li class="chapter" data-level="3.1" data-path="lab-continuous-probability.html"><a href="lab-continuous-probability.html#question-1-2"><i class="fa fa-check"></i><b>3.1</b> Question 1</a><ul>
+<li class="chapter" data-level="3.1.1" data-path="lab-continuous-probability.html"><a href="lab-continuous-probability.html#a"><i class="fa fa-check"></i><b>3.1.1</b> 1a</a></li>
+<li class="chapter" data-level="3.1.2" data-path="lab-continuous-probability.html"><a href="lab-continuous-probability.html#b"><i class="fa fa-check"></i><b>3.1.2</b> 1b</a></li>
+<li class="chapter" data-level="3.1.3" data-path="lab-continuous-probability.html"><a href="lab-continuous-probability.html#c"><i class="fa fa-check"></i><b>3.1.3</b> 1c</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="lab-continuous-probability.html"><a href="lab-continuous-probability.html#question-2-2"><i class="fa fa-check"></i><b>3.2</b> Question 2</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="lab-continuous-probability.html"><a href="lab-continuous-probability.html#a-1"><i class="fa fa-check"></i><b>3.2.1</b> 2a</a></li>
+<li class="chapter" data-level="3.2.2" data-path="lab-continuous-probability.html"><a href="lab-continuous-probability.html#b-1"><i class="fa fa-check"></i><b>3.2.2</b> 2b</a></li>
+<li class="chapter" data-level="3.2.3" data-path="lab-continuous-probability.html"><a href="lab-continuous-probability.html#c-1"><i class="fa fa-check"></i><b>3.2.3</b> 2c</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="lab-continuous-probability.html"><a href="lab-continuous-probability.html#question-3-2"><i class="fa fa-check"></i><b>3.3</b> Question 3</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="lab-continuous-probability.html"><a href="lab-continuous-probability.html#a-2"><i class="fa fa-check"></i><b>3.3.1</b> 3a</a></li>
+<li class="chapter" data-level="3.3.2" data-path="lab-continuous-probability.html"><a href="lab-continuous-probability.html#b-2"><i class="fa fa-check"></i><b>3.3.2</b> 3b</a></li>
+<li class="chapter" data-level="3.3.3" data-path="lab-continuous-probability.html"><a href="lab-continuous-probability.html#c-2"><i class="fa fa-check"></i><b>3.3.3</b> 3c</a></li>
+<li class="chapter" data-level="3.3.4" data-path="lab-continuous-probability.html"><a href="lab-continuous-probability.html#d"><i class="fa fa-check"></i><b>3.3.4</b> 3d</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="lab-inferential-statistics.html"><a href="lab-inferential-statistics.html"><i class="fa fa-check"></i><b>4</b> Lab - Inferential Statistics</a><ul>
+<li class="chapter" data-level="4.1" data-path="lab-inferential-statistics.html"><a href="lab-inferential-statistics.html#question-1-3"><i class="fa fa-check"></i><b>4.1</b> Question 1</a></li>
+<li class="chapter" data-level="4.2" data-path="lab-inferential-statistics.html"><a href="lab-inferential-statistics.html#question-2-3"><i class="fa fa-check"></i><b>4.2</b> Question 2</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="lab-inferential-statistics.html"><a href="lab-inferential-statistics.html#solution-1-1"><i class="fa fa-check"></i><b>4.2.1</b> Solution 1</a></li>
+<li class="chapter" data-level="4.2.2" data-path="lab-inferential-statistics.html"><a href="lab-inferential-statistics.html#solution-2-1"><i class="fa fa-check"></i><b>4.2.2</b> Solution 2</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="lab-inferential-statistics.html"><a href="lab-inferential-statistics.html#question-3-3"><i class="fa fa-check"></i><b>4.3</b> Question 3</a></li>
+<li class="chapter" data-level="4.4" data-path="lab-inferential-statistics.html"><a href="lab-inferential-statistics.html#question-4-2"><i class="fa fa-check"></i><b>4.4</b> Question 4</a></li>
+<li class="chapter" data-level="4.5" data-path="lab-inferential-statistics.html"><a href="lab-inferential-statistics.html#question-5"><i class="fa fa-check"></i><b>4.5</b> Question 5</a></li>
+<li class="chapter" data-level="4.6" data-path="lab-inferential-statistics.html"><a href="lab-inferential-statistics.html#question-6"><i class="fa fa-check"></i><b>4.6</b> Question 6</a></li>
+<li class="chapter" data-level="4.7" data-path="lab-inferential-statistics.html"><a href="lab-inferential-statistics.html#question-7"><i class="fa fa-check"></i><b>4.7</b> Question 7</a></li>
+<li class="chapter" data-level="4.8" data-path="lab-inferential-statistics.html"><a href="lab-inferential-statistics.html#question-8"><i class="fa fa-check"></i><b>4.8</b> Question 8</a></li>
+<li class="chapter" data-level="4.9" data-path="lab-inferential-statistics.html"><a href="lab-inferential-statistics.html#question-9"><i class="fa fa-check"></i><b>4.9</b> Question 9</a></li>
+<li class="chapter" data-level="4.10" data-path="lab-inferential-statistics.html"><a href="lab-inferential-statistics.html#question-10"><i class="fa fa-check"></i><b>4.10</b> Question 10</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="lab-analysis-of-variance.html"><a href="lab-analysis-of-variance.html"><i class="fa fa-check"></i><b>5</b> Lab - Analysis of Variance</a><ul>
+<li class="chapter" data-level="5.1" data-path="lab-analysis-of-variance.html"><a href="lab-analysis-of-variance.html#question-1-4"><i class="fa fa-check"></i><b>5.1</b> Question 1</a><ul>
+<li class="chapter" data-level="5.1.1" data-path="lab-analysis-of-variance.html"><a href="lab-analysis-of-variance.html#problem"><i class="fa fa-check"></i><b>5.1.1</b> Problem</a></li>
+<li class="chapter" data-level="5.1.2" data-path="lab-analysis-of-variance.html"><a href="lab-analysis-of-variance.html#solution"><i class="fa fa-check"></i><b>5.1.2</b> Solution</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="lab-analysis-of-variance.html"><a href="lab-analysis-of-variance.html#question-2-4"><i class="fa fa-check"></i><b>5.2</b> Question 2</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="lab-analysis-of-variance.html"><a href="lab-analysis-of-variance.html#problem-1"><i class="fa fa-check"></i><b>5.2.1</b> Problem</a></li>
+<li class="chapter" data-level="5.2.2" data-path="lab-analysis-of-variance.html"><a href="lab-analysis-of-variance.html#solution-3"><i class="fa fa-check"></i><b>5.2.2</b> Solution</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="lab-analysis-of-variance.html"><a href="lab-analysis-of-variance.html#question-3-4"><i class="fa fa-check"></i><b>5.3</b> Question 3</a><ul>
+<li class="chapter" data-level="5.3.1" data-path="lab-analysis-of-variance.html"><a href="lab-analysis-of-variance.html#problem-2"><i class="fa fa-check"></i><b>5.3.1</b> Problem</a></li>
+<li class="chapter" data-level="5.3.2" data-path="lab-analysis-of-variance.html"><a href="lab-analysis-of-variance.html#solution-4"><i class="fa fa-check"></i><b>5.3.2</b> Solution</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="lab-analysis-of-variance.html"><a href="lab-analysis-of-variance.html#question-4-3"><i class="fa fa-check"></i><b>5.4</b> Question 4</a><ul>
+<li class="chapter" data-level="5.4.1" data-path="lab-analysis-of-variance.html"><a href="lab-analysis-of-variance.html#problem-3"><i class="fa fa-check"></i><b>5.4.1</b> Problem</a></li>
+<li class="chapter" data-level="5.4.2" data-path="lab-analysis-of-variance.html"><a href="lab-analysis-of-variance.html#solution-5"><i class="fa fa-check"></i><b>5.4.2</b> Solution</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="lab-analysis-of-variance.html"><a href="lab-analysis-of-variance.html#question-5-1"><i class="fa fa-check"></i><b>5.5</b> Question 5</a><ul>
+<li class="chapter" data-level="5.5.1" data-path="lab-analysis-of-variance.html"><a href="lab-analysis-of-variance.html#problem-4"><i class="fa fa-check"></i><b>5.5.1</b> Problem</a></li>
+<li class="chapter" data-level="5.5.2" data-path="lab-analysis-of-variance.html"><a href="lab-analysis-of-variance.html#solution-6"><i class="fa fa-check"></i><b>5.5.2</b> Solution</a></li>
+</ul></li>
+<li class="chapter" data-level="5.6" data-path="lab-analysis-of-variance.html"><a href="lab-analysis-of-variance.html#question-6-1"><i class="fa fa-check"></i><b>5.6</b> Question 6</a><ul>
+<li class="chapter" data-level="5.6.1" data-path="lab-analysis-of-variance.html"><a href="lab-analysis-of-variance.html#problem-5"><i class="fa fa-check"></i><b>5.6.1</b> Problem</a></li>
+<li class="chapter" data-level="5.6.2" data-path="lab-analysis-of-variance.html"><a href="lab-analysis-of-variance.html#solution-7"><i class="fa fa-check"></i><b>5.6.2</b> Solution</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="lab-correlation.html"><a href="lab-correlation.html"><i class="fa fa-check"></i><b>6</b> Lab - Correlation</a><ul>
+<li class="chapter" data-level="6.1" data-path="lab-correlation.html"><a href="lab-correlation.html#question-1-5"><i class="fa fa-check"></i><b>6.1</b> Question 1</a><ul>
+<li class="chapter" data-level="6.1.1" data-path="lab-correlation.html"><a href="lab-correlation.html#problem-1a"><i class="fa fa-check"></i><b>6.1.1</b> Problem 1a</a></li>
+<li class="chapter" data-level="6.1.2" data-path="lab-correlation.html"><a href="lab-correlation.html#problem-1b"><i class="fa fa-check"></i><b>6.1.2</b> Problem 1b</a></li>
+<li class="chapter" data-level="6.1.3" data-path="lab-correlation.html"><a href="lab-correlation.html#problem-1c"><i class="fa fa-check"></i><b>6.1.3</b> Problem 1c</a></li>
+<li class="chapter" data-level="6.1.4" data-path="lab-correlation.html"><a href="lab-correlation.html#problem-1d"><i class="fa fa-check"></i><b>6.1.4</b> Problem 1d</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="lab-correlation.html"><a href="lab-correlation.html#question-2-5"><i class="fa fa-check"></i><b>6.2</b> Question 2</a><ul>
+<li class="chapter" data-level="6.2.1" data-path="lab-correlation.html"><a href="lab-correlation.html#problem-6"><i class="fa fa-check"></i><b>6.2.1</b> Problem</a></li>
+<li class="chapter" data-level="6.2.2" data-path="lab-correlation.html"><a href="lab-correlation.html#solution-8"><i class="fa fa-check"></i><b>6.2.2</b> Solution</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="lab-correlation.html"><a href="lab-correlation.html#question-3-5"><i class="fa fa-check"></i><b>6.3</b> Question 3</a><ul>
+<li class="chapter" data-level="6.3.1" data-path="lab-correlation.html"><a href="lab-correlation.html#problem-7"><i class="fa fa-check"></i><b>6.3.1</b> Problem</a></li>
+<li class="chapter" data-level="6.3.2" data-path="lab-correlation.html"><a href="lab-correlation.html#solution-9"><i class="fa fa-check"></i><b>6.3.2</b> Solution</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="lab-correlation.html"><a href="lab-correlation.html#question-4-4"><i class="fa fa-check"></i><b>6.4</b> Question 4</a><ul>
+<li class="chapter" data-level="6.4.1" data-path="lab-correlation.html"><a href="lab-correlation.html#problem-8"><i class="fa fa-check"></i><b>6.4.1</b> Problem</a></li>
+<li class="chapter" data-level="6.4.2" data-path="lab-correlation.html"><a href="lab-correlation.html#solution-10"><i class="fa fa-check"></i><b>6.4.2</b> Solution</a></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="lab-correlation.html"><a href="lab-correlation.html#question-5-2"><i class="fa fa-check"></i><b>6.5</b> Question 5</a><ul>
+<li class="chapter" data-level="6.5.1" data-path="lab-correlation.html"><a href="lab-correlation.html#problem-9"><i class="fa fa-check"></i><b>6.5.1</b> Problem</a></li>
+<li class="chapter" data-level="6.5.2" data-path="lab-correlation.html"><a href="lab-correlation.html#solution-11"><i class="fa fa-check"></i><b>6.5.2</b> Solution</a></li>
+</ul></li>
+<li class="chapter" data-level="6.6" data-path="lab-correlation.html"><a href="lab-correlation.html#question-6-2"><i class="fa fa-check"></i><b>6.6</b> Question 6</a><ul>
+<li class="chapter" data-level="6.6.1" data-path="lab-correlation.html"><a href="lab-correlation.html#problem-10"><i class="fa fa-check"></i><b>6.6.1</b> Problem</a></li>
+<li class="chapter" data-level="6.6.2" data-path="lab-correlation.html"><a href="lab-correlation.html#solution-12"><i class="fa fa-check"></i><b>6.6.2</b> Solution</a></li>
+</ul></li>
+<li class="chapter" data-level="6.7" data-path="lab-correlation.html"><a href="lab-correlation.html#question-7-1"><i class="fa fa-check"></i><b>6.7</b> Question 7</a><ul>
+<li class="chapter" data-level="6.7.1" data-path="lab-correlation.html"><a href="lab-correlation.html#problem-11"><i class="fa fa-check"></i><b>6.7.1</b> Problem</a></li>
+<li class="chapter" data-level="6.7.2" data-path="lab-correlation.html"><a href="lab-correlation.html#solution-13"><i class="fa fa-check"></i><b>6.7.2</b> Solution</a></li>
+</ul></li>
+<li class="chapter" data-level="6.8" data-path="lab-correlation.html"><a href="lab-correlation.html#question-8-1"><i class="fa fa-check"></i><b>6.8</b> Question 8</a><ul>
+<li class="chapter" data-level="6.8.1" data-path="lab-correlation.html"><a href="lab-correlation.html#problem-12"><i class="fa fa-check"></i><b>6.8.1</b> Problem</a></li>
+<li class="chapter" data-level="6.8.2" data-path="lab-correlation.html"><a href="lab-correlation.html#solution-14"><i class="fa fa-check"></i><b>6.8.2</b> Solution</a></li>
+</ul></li>
+<li class="chapter" data-level="6.9" data-path="lab-correlation.html"><a href="lab-correlation.html#question-9-1"><i class="fa fa-check"></i><b>6.9</b> Question 9</a><ul>
+<li class="chapter" data-level="6.9.1" data-path="lab-correlation.html"><a href="lab-correlation.html#problem-9a"><i class="fa fa-check"></i><b>6.9.1</b> Problem 9a</a></li>
+<li class="chapter" data-level="6.9.2" data-path="lab-correlation.html"><a href="lab-correlation.html#problem-9b"><i class="fa fa-check"></i><b>6.9.2</b> Problem 9b</a></li>
+<li class="chapter" data-level="6.9.3" data-path="lab-correlation.html"><a href="lab-correlation.html#problem-9c"><i class="fa fa-check"></i><b>6.9.3</b> Problem 9c</a></li>
+<li class="chapter" data-level="6.9.4" data-path="lab-correlation.html"><a href="lab-correlation.html#problem-9d"><i class="fa fa-check"></i><b>6.9.4</b> Problem 9d</a></li>
+<li class="chapter" data-level="6.9.5" data-path="lab-correlation.html"><a href="lab-correlation.html#problem-9e"><i class="fa fa-check"></i><b>6.9.5</b> Problem 9e</a></li>
+<li class="chapter" data-level="6.9.6" data-path="lab-correlation.html"><a href="lab-correlation.html#problem-9f"><i class="fa fa-check"></i><b>6.9.6</b> Problem 9f</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="lab-bivariate-regression.html"><a href="lab-bivariate-regression.html"><i class="fa fa-check"></i><b>7</b> Lab - Bivariate Regression</a><ul>
+<li class="chapter" data-level="7.1" data-path="lab-bivariate-regression.html"><a href="lab-bivariate-regression.html#question-1-6"><i class="fa fa-check"></i><b>7.1</b> Question 1</a><ul>
+<li class="chapter" data-level="7.1.1" data-path="lab-bivariate-regression.html"><a href="lab-bivariate-regression.html#question-1a-1"><i class="fa fa-check"></i><b>7.1.1</b> Question 1(a)</a></li>
+<li class="chapter" data-level="7.1.2" data-path="lab-bivariate-regression.html"><a href="lab-bivariate-regression.html#question-1b-1"><i class="fa fa-check"></i><b>7.1.2</b> Question 1(b)</a></li>
+<li class="chapter" data-level="7.1.3" data-path="lab-bivariate-regression.html"><a href="lab-bivariate-regression.html#question-1c"><i class="fa fa-check"></i><b>7.1.3</b> Question 1(c)</a></li>
+<li class="chapter" data-level="7.1.4" data-path="lab-bivariate-regression.html"><a href="lab-bivariate-regression.html#question-1d"><i class="fa fa-check"></i><b>7.1.4</b> Question 1(d)</a></li>
+<li class="chapter" data-level="7.1.5" data-path="lab-bivariate-regression.html"><a href="lab-bivariate-regression.html#question-1e"><i class="fa fa-check"></i><b>7.1.5</b> Question 1(e)</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="lab-bivariate-regression.html"><a href="lab-bivariate-regression.html#question-2-6"><i class="fa fa-check"></i><b>7.2</b> Question 2</a><ul>
+<li class="chapter" data-level="7.2.1" data-path="lab-bivariate-regression.html"><a href="lab-bivariate-regression.html#question-2a"><i class="fa fa-check"></i><b>7.2.1</b> Question 2(a)</a></li>
+<li class="chapter" data-level="7.2.2" data-path="lab-bivariate-regression.html"><a href="lab-bivariate-regression.html#question-2b"><i class="fa fa-check"></i><b>7.2.2</b> Question 2(b)</a></li>
+<li class="chapter" data-level="7.2.3" data-path="lab-bivariate-regression.html"><a href="lab-bivariate-regression.html#question-2c"><i class="fa fa-check"></i><b>7.2.3</b> Question 2(c)</a></li>
+<li class="chapter" data-level="7.2.4" data-path="lab-bivariate-regression.html"><a href="lab-bivariate-regression.html#question-2d"><i class="fa fa-check"></i><b>7.2.4</b> Question 2(d)</a></li>
+<li class="chapter" data-level="7.2.5" data-path="lab-bivariate-regression.html"><a href="lab-bivariate-regression.html#question-2e"><i class="fa fa-check"></i><b>7.2.5</b> Question 2(e)</a></li>
+<li class="chapter" data-level="7.2.6" data-path="lab-bivariate-regression.html"><a href="lab-bivariate-regression.html#question-2f"><i class="fa fa-check"></i><b>7.2.6</b> Question 2(f)</a></li>
+<li class="chapter" data-level="7.2.7" data-path="lab-bivariate-regression.html"><a href="lab-bivariate-regression.html#question-2g"><i class="fa fa-check"></i><b>7.2.7</b> Question 2(g)</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="lab-bivariate-regression.html"><a href="lab-bivariate-regression.html#question-3-6"><i class="fa fa-check"></i><b>7.3</b> Question 3</a><ul>
+<li class="chapter" data-level="7.3.1" data-path="lab-bivariate-regression.html"><a href="lab-bivariate-regression.html#problem-13"><i class="fa fa-check"></i><b>7.3.1</b> Problem</a></li>
+<li class="chapter" data-level="7.3.2" data-path="lab-bivariate-regression.html"><a href="lab-bivariate-regression.html#solution-15"><i class="fa fa-check"></i><b>7.3.2</b> Solution</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="lab-bivariate-regression.html"><a href="lab-bivariate-regression.html#question-4-5"><i class="fa fa-check"></i><b>7.4</b> Question 4</a><ul>
+<li class="chapter" data-level="7.4.1" data-path="lab-bivariate-regression.html"><a href="lab-bivariate-regression.html#question-4a"><i class="fa fa-check"></i><b>7.4.1</b> Question 4(a)</a></li>
+<li class="chapter" data-level="7.4.2" data-path="lab-bivariate-regression.html"><a href="lab-bivariate-regression.html#question-4b"><i class="fa fa-check"></i><b>7.4.2</b> Question 4(b)</a></li>
+</ul></li>
+<li class="chapter" data-level="7.5" data-path="lab-bivariate-regression.html"><a href="lab-bivariate-regression.html#question-5-3"><i class="fa fa-check"></i><b>7.5</b> Question 5</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="lab-multiple-regression.html"><a href="lab-multiple-regression.html"><i class="fa fa-check"></i><b>8</b> Lab - Multiple Regression</a><ul>
+<li class="chapter" data-level="8.1" data-path="lab-multiple-regression.html"><a href="lab-multiple-regression.html#question-1-7"><i class="fa fa-check"></i><b>8.1</b> Question 1</a><ul>
+<li class="chapter" data-level="8.1.1" data-path="lab-multiple-regression.html"><a href="lab-multiple-regression.html#question-1a-2"><i class="fa fa-check"></i><b>8.1.1</b> Question 1(a)</a></li>
+<li class="chapter" data-level="8.1.2" data-path="lab-multiple-regression.html"><a href="lab-multiple-regression.html#question-1b-2"><i class="fa fa-check"></i><b>8.1.2</b> Question 1(b)</a></li>
+<li class="chapter" data-level="8.1.3" data-path="lab-multiple-regression.html"><a href="lab-multiple-regression.html#question-1c-1"><i class="fa fa-check"></i><b>8.1.3</b> Question 1(c)</a></li>
+<li class="chapter" data-level="8.1.4" data-path="lab-multiple-regression.html"><a href="lab-multiple-regression.html#question-1d-1"><i class="fa fa-check"></i><b>8.1.4</b> Question 1(d)</a></li>
+<li class="chapter" data-level="8.1.5" data-path="lab-multiple-regression.html"><a href="lab-multiple-regression.html#question-1e-1"><i class="fa fa-check"></i><b>8.1.5</b> Question 1(e)</a></li>
+<li class="chapter" data-level="8.1.6" data-path="lab-multiple-regression.html"><a href="lab-multiple-regression.html#question-1f"><i class="fa fa-check"></i><b>8.1.6</b> Question 1(f)</a></li>
+<li class="chapter" data-level="8.1.7" data-path="lab-multiple-regression.html"><a href="lab-multiple-regression.html#question-1g"><i class="fa fa-check"></i><b>8.1.7</b> Question 1(g)</a></li>
+<li class="chapter" data-level="8.1.8" data-path="lab-multiple-regression.html"><a href="lab-multiple-regression.html#question-1h"><i class="fa fa-check"></i><b>8.1.8</b> Question 1(h)</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="lab-multiple-regression.html"><a href="lab-multiple-regression.html#question-2-7"><i class="fa fa-check"></i><b>8.2</b> Question 2</a><ul>
+<li class="chapter" data-level="8.2.1" data-path="lab-multiple-regression.html"><a href="lab-multiple-regression.html#question-2a-1"><i class="fa fa-check"></i><b>8.2.1</b> Question 2(a)</a></li>
+<li class="chapter" data-level="8.2.2" data-path="lab-multiple-regression.html"><a href="lab-multiple-regression.html#question-2b-1"><i class="fa fa-check"></i><b>8.2.2</b> Question 2(b)</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="lab-multiple-regression.html"><a href="lab-multiple-regression.html#question-3-7"><i class="fa fa-check"></i><b>8.3</b> Question 3</a><ul>
+<li class="chapter" data-level="8.3.1" data-path="lab-multiple-regression.html"><a href="lab-multiple-regression.html#question-3a"><i class="fa fa-check"></i><b>8.3.1</b> Question 3(a)</a></li>
+<li class="chapter" data-level="8.3.2" data-path="lab-multiple-regression.html"><a href="lab-multiple-regression.html#question-3b"><i class="fa fa-check"></i><b>8.3.2</b> Question 3(b)</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="midterm-exam.html"><a href="midterm-exam.html"><i class="fa fa-check"></i><b>9</b> Midterm Exam</a><ul>
+<li class="chapter" data-level="9.1" data-path="midterm-exam.html"><a href="midterm-exam.html#question-1-25-pt."><i class="fa fa-check"></i><b>9.1</b> Question 1 (25 pt.)</a><ul>
+<li class="chapter" data-level="9.1.1" data-path="midterm-exam.html"><a href="midterm-exam.html#question-1a-3"><i class="fa fa-check"></i><b>9.1.1</b> Question 1a</a></li>
+<li class="chapter" data-level="9.1.2" data-path="midterm-exam.html"><a href="midterm-exam.html#question-1b-3"><i class="fa fa-check"></i><b>9.1.2</b> Question 1b</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="midterm-exam.html"><a href="midterm-exam.html#question-2-25-pt."><i class="fa fa-check"></i><b>9.2</b> Question 2 (25 pt.)</a><ul>
+<li class="chapter" data-level="9.2.1" data-path="midterm-exam.html"><a href="midterm-exam.html#question-2a-2"><i class="fa fa-check"></i><b>9.2.1</b> Question 2a</a></li>
+<li class="chapter" data-level="9.2.2" data-path="midterm-exam.html"><a href="midterm-exam.html#question-2b-2"><i class="fa fa-check"></i><b>9.2.2</b> Question 2b</a></li>
+<li class="chapter" data-level="9.2.3" data-path="midterm-exam.html"><a href="midterm-exam.html#question-2c-1"><i class="fa fa-check"></i><b>9.2.3</b> Question 2c</a></li>
+<li class="chapter" data-level="9.2.4" data-path="midterm-exam.html"><a href="midterm-exam.html#question-2d-1"><i class="fa fa-check"></i><b>9.2.4</b> Question 2d</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="midterm-exam.html"><a href="midterm-exam.html#question-3-25-pt."><i class="fa fa-check"></i><b>9.3</b> Question 3 (25 pt.)</a><ul>
+<li class="chapter" data-level="9.3.1" data-path="midterm-exam.html"><a href="midterm-exam.html#question-3a-1"><i class="fa fa-check"></i><b>9.3.1</b> Question 3a</a></li>
+<li class="chapter" data-level="9.3.2" data-path="midterm-exam.html"><a href="midterm-exam.html#question-3b-1"><i class="fa fa-check"></i><b>9.3.2</b> Question 3b</a></li>
+<li class="chapter" data-level="9.3.3" data-path="midterm-exam.html"><a href="midterm-exam.html#question-3c"><i class="fa fa-check"></i><b>9.3.3</b> Question 3c</a></li>
+<li class="chapter" data-level="9.3.4" data-path="midterm-exam.html"><a href="midterm-exam.html#question-3d"><i class="fa fa-check"></i><b>9.3.4</b> Question 3d</a></li>
+</ul></li>
+<li class="chapter" data-level="9.4" data-path="midterm-exam.html"><a href="midterm-exam.html#question-4-25-pt."><i class="fa fa-check"></i><b>9.4</b> Question 4 (25 pt.)</a><ul>
+<li class="chapter" data-level="9.4.1" data-path="midterm-exam.html"><a href="midterm-exam.html#question-4a-1"><i class="fa fa-check"></i><b>9.4.1</b> Question 4a</a></li>
+<li class="chapter" data-level="9.4.2" data-path="midterm-exam.html"><a href="midterm-exam.html#question-4b-1"><i class="fa fa-check"></i><b>9.4.2</b> Question 4b</a></li>
+<li class="chapter" data-level="9.4.3" data-path="midterm-exam.html"><a href="midterm-exam.html#question-4c"><i class="fa fa-check"></i><b>9.4.3</b> Question 4c</a></li>
+<li class="chapter" data-level="9.4.4" data-path="midterm-exam.html"><a href="midterm-exam.html#question-4d"><i class="fa fa-check"></i><b>9.4.4</b> Question 4d</a></li>
+</ul></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Statistics for Geography (GEOG 533)</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="lab---analysis-of-variance" class="section level1">
+<h1><span class="header-section-number">5</span> Lab - Analysis of Variance</h1>
+<p>Complete the following exercises in Chapter 6 (Analysis of Variance) of the textbook pages 199-203. For each question, you need to specify the null hypothesis and why you accept or reject the null hypothesis.</p>
+<div id="question-1-4" class="section level2">
+<h2><span class="header-section-number">5.1</span> Question 1</h2>
+<p>This is Exercise 2 in Chapter 6 of the Textbook [R].</p>
+<div id="problem" class="section level3">
+<h3><span class="header-section-number">5.1.1</span> Problem</h3>
+<p>Assume that an analysis of variance is conducted for a study where there are <span class="math inline">\(N = 50\)</span> observations and <span class="math inline">\(k = 5\)</span> categories. Fill in the blanks in the following ANOVA table:</p>
+<table>
+<thead>
+<tr class="header">
+<th></th>
+<th>Sum of squares</th>
+<th>Degrees of freedom</th>
+<th>Mean square</th>
+<th><em>F</em></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Between</td>
+<td></td>
+<td></td>
+<td>116.3</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Within</td>
+<td>2000</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Total</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="solution" class="section level3">
+<h3><span class="header-section-number">5.1.2</span> Solution</h3>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">n &lt;-<span class="st"> </span><span class="dv">50</span>
+k &lt;-<span class="st"> </span><span class="dv">5</span>
+WSS &lt;-<span class="st"> </span><span class="dv">2000</span>
+m.sq1 &lt;-<span class="st"> </span><span class="fl">116.3</span>
+
+df1 &lt;-<span class="st"> </span>k -<span class="st"> </span><span class="dv">1</span> 
+df2 &lt;-<span class="st"> </span>n -<span class="st"> </span>k
+
+BSS &lt;-<span class="st"> </span>df1 *<span class="st"> </span>m.sq1
+m.sq2 &lt;-<span class="st"> </span>WSS/df2
+TSS &lt;-<span class="st"> </span>WSS +<span class="st"> </span>BSS
+
+F.ratio &lt;-<span class="st"> </span>m.sq1/m.sq2   ## 2.61675
+F.critical &lt;-<span class="st"> </span><span class="kw">qf</span>(<span class="fl">0.95</span>,df1,df2)   ## 2.5787
+
+if(F.ratio &gt;<span class="st"> </span>F.critical) {
+  <span class="kw">print</span>(<span class="st">&quot;We reject the null hypothesis&quot;</span>)
+} else {
+  <span class="kw">print</span>(<span class="st">&quot;we cannot reject the null hypothesis&quot;</span>)
+}</code></pre></div>
+<pre><code>## [1] &quot;We reject the null hypothesis&quot;</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th></th>
+<th>Sum of squares</th>
+<th>Degrees of freedom</th>
+<th>Mean square</th>
+<th><em>F</em></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Between</td>
+<td>465.2</td>
+<td>4</td>
+<td>116.3</td>
+<td>2.61675</td>
+</tr>
+<tr class="even">
+<td>Within</td>
+<td>2000</td>
+<td>45</td>
+<td>44.4444444</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Total</td>
+<td>2465.2</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="question-2-4" class="section level2">
+<h2><span class="header-section-number">5.2</span> Question 2</h2>
+<p>This is Exercise 6 in Chapter 6 of the Textbook [R].</p>
+<div id="problem-1" class="section level3">
+<h3><span class="header-section-number">5.2.1</span> Problem</h3>
+<p>Is there a significant difference between the distances moved by low- and high-income individuals? Twelve respondents in each of the income categories are interviewed, with the following results for the distances associated with residential moves:</p>
+<table>
+<thead>
+<tr class="header">
+<th>Respondent</th>
+<th>Low income</th>
+<th>High income</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>5</td>
+<td>25</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>7</td>
+<td>24</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>9</td>
+<td>8</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>11</td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>13</td>
+<td>11</td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td>8</td>
+<td>10</td>
+</tr>
+<tr class="odd">
+<td>7</td>
+<td>10</td>
+<td>10</td>
+</tr>
+<tr class="even">
+<td>8</td>
+<td>34</td>
+<td>66</td>
+</tr>
+<tr class="odd">
+<td>9</td>
+<td>17</td>
+<td>113</td>
+</tr>
+<tr class="even">
+<td>10</td>
+<td>50</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>11</td>
+<td>17</td>
+<td>3</td>
+</tr>
+<tr class="even">
+<td>12</td>
+<td>25</td>
+<td>5</td>
+</tr>
+<tr class="odd">
+<td>Mean</td>
+<td>17.17</td>
+<td>23.17</td>
+</tr>
+<tr class="even">
+<td>Std. dev.</td>
+<td>13.25</td>
+<td>33.45</td>
+</tr>
+</tbody>
+</table>
+<p>Test the null hypothesis of homogeneity of variances by forming the ratio <span class="math inline">\(s_1^2 / s_2^2\)</span> which has an F-ratio with <span class="math inline">\(n_1 – 1\)</span> and <span class="math inline">\(n_2 – 1\)</span> degrees of freedom. Then use ANOVA (with <span class="math inline">\(\alpha = 0.10\)</span>) to test whether there are differences in the two population means. Set up the null and alternative hypotheses, choose a value of α and a test statistic, and test the null hypothesis. What assumption of the test is likely not satisfied?</p>
+</div>
+<div id="solution-3" class="section level3">
+<h3><span class="header-section-number">5.2.2</span> Solution</h3>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">L &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">5</span>,<span class="dv">7</span>,<span class="dv">9</span>,<span class="dv">11</span>,<span class="dv">13</span>,<span class="dv">8</span>,<span class="dv">10</span>,<span class="dv">34</span>,<span class="dv">17</span>,<span class="dv">50</span>,<span class="dv">17</span>,<span class="dv">25</span>)
+H &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">25</span>,<span class="dv">24</span>,<span class="dv">8</span>,<span class="dv">2</span>,<span class="dv">11</span>,<span class="dv">10</span>,<span class="dv">10</span>,<span class="dv">66</span>,<span class="dv">113</span>,<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">5</span>)
+m1 &lt;-<span class="st"> </span><span class="kw">mean</span>(L)
+m2 &lt;-<span class="st"> </span><span class="kw">mean</span>(H)
+s1 &lt;-<span class="st"> </span><span class="kw">var</span>(L)
+s2 &lt;-<span class="st"> </span><span class="kw">var</span>(H)
+
+income &lt;-<span class="st"> </span><span class="kw">c</span>(L,H)
+group &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="kw">rep</span>(<span class="st">&quot;L&quot;</span>,<span class="dv">12</span>),<span class="kw">rep</span>(<span class="st">&quot;H&quot;</span>,<span class="dv">12</span>))
+df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(income,group)
+
+F &lt;-<span class="st"> </span>s1/s2  <span class="co">#0.157</span>
+F.ratio &lt;-<span class="st"> </span><span class="kw">df</span>(<span class="fl">0.9</span>,<span class="dt">df1 =</span> <span class="dv">11</span>,<span class="dt">df2 =</span> <span class="dv">11</span>)  <span class="co">#0.708</span>
+
+<span class="kw">library</span>(car)</code></pre></div>
+<pre><code>## 
+## Attaching package: &#39;car&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:dplyr&#39;:
+## 
+##     recode</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">leveneTest</span>(income~group,<span class="dt">data =</span> df)</code></pre></div>
+<pre><code>## Levene&#39;s Test for Homogeneity of Variance (center = median)
+##       Df F value Pr(&gt;F)
+## group  1  1.0206 0.3234
+##       22</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">m &lt;-<span class="st"> </span><span class="kw">aov</span>(income~group, <span class="dt">data =</span> df)
+<span class="kw">summary</span>(m)</code></pre></div>
+<pre><code>##             Df Sum Sq Mean Sq F value Pr(&gt;F)
+## group        1    216   216.0   0.334  0.569
+## Residuals   22  14241   647.3</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">kruskal.test</span>(L,H)</code></pre></div>
+<pre><code>## 
+##  Kruskal-Wallis rank sum test
+## 
+## data:  L and H
+## Kruskal-Wallis chi-squared = 10.846, df = 10, p-value = 0.3697</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">shapiro.test</span>(L)</code></pre></div>
+<pre><code>## 
+##  Shapiro-Wilk normality test
+## 
+## data:  L
+## W = 0.81099, p-value = 0.01253</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">shapiro.test</span>(H)</code></pre></div>
+<pre><code>## 
+##  Shapiro-Wilk normality test
+## 
+## data:  H
+## W = 0.67351, p-value = 0.0004738</code></pre>
+</div>
+</div>
+<div id="question-3-4" class="section level2">
+<h2><span class="header-section-number">5.3</span> Question 3</h2>
+<p>This is Exercise 9 in Chapter 6 of the Textbook [R].</p>
+<div id="problem-2" class="section level3">
+<h3><span class="header-section-number">5.3.1</span> Problem</h3>
+<p>A sample is taken of incomes in three neighborhoods, yielding the following data:</p>
+<table>
+<thead>
+<tr class="header">
+<th></th>
+<th>A</th>
+<th>B</th>
+<th>C</th>
+<th>Overall (Combined sample)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>N</td>
+<td>12</td>
+<td>10</td>
+<td>8</td>
+<td>30</td>
+</tr>
+<tr class="even">
+<td>Mean</td>
+<td>43.2</td>
+<td>34.3</td>
+<td>27.2</td>
+<td>35.97</td>
+</tr>
+<tr class="odd">
+<td>Std. dev.</td>
+<td>36.2</td>
+<td>20.3</td>
+<td>21.4</td>
+<td>29.2</td>
+</tr>
+</tbody>
+</table>
+<p>Use analysis of variance (with α = 0.05) to test the null hypothesis that the means are equal.</p>
+</div>
+<div id="solution-4" class="section level3">
+<h3><span class="header-section-number">5.3.2</span> Solution</h3>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(MASS)
+A &lt;-<span class="st"> </span><span class="kw">mvrnorm</span>(<span class="dv">12</span>,<span class="dt">mu =</span> <span class="fl">43.2</span>,<span class="dt">Sigma =</span> <span class="fl">36.2</span>^<span class="dv">2</span>,<span class="dt">empirical =</span> <span class="ot">TRUE</span>)
+B &lt;-<span class="st"> </span><span class="kw">mvrnorm</span>(<span class="dv">10</span>,<span class="dt">mu =</span> <span class="fl">34.3</span>,<span class="dt">Sigma =</span> <span class="fl">20.3</span>^<span class="dv">2</span>,<span class="dt">empirical =</span> <span class="ot">TRUE</span>)
+C &lt;-<span class="st"> </span><span class="kw">mvrnorm</span>(<span class="dv">8</span>,<span class="dt">mu =</span> <span class="fl">27.2</span>,<span class="dt">Sigma =</span> <span class="fl">21.4</span>^<span class="dv">2</span>,<span class="dt">empirical =</span> <span class="ot">TRUE</span>)
+k &lt;-<span class="st"> </span><span class="dv">3</span>
+n &lt;-<span class="st"> </span><span class="dv">30</span>
+
+values &lt;-<span class="st"> </span><span class="kw">c</span>(A,B,C)
+groups &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="kw">rep</span>(<span class="st">&quot;A&quot;</span>,<span class="dv">12</span>),<span class="kw">rep</span>(<span class="st">&quot;B&quot;</span>,<span class="dv">10</span>),<span class="kw">rep</span>(<span class="st">&quot;C&quot;</span>,<span class="dv">8</span>))
+df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(values,groups)
+m &lt;-<span class="st"> </span><span class="kw">aov</span>(values~groups,<span class="dt">data =</span> df)
+<span class="kw">summary</span>(m)</code></pre></div>
+<pre><code>##             Df Sum Sq Mean Sq F value Pr(&gt;F)
+## groups       2   1270   635.2   0.804  0.458
+## Residuals   27  21329   790.0</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">p.value &lt;-<span class="st"> </span><span class="kw">summary</span>(m)[[<span class="dv">1</span>]][[<span class="dv">1</span>,<span class="st">&quot;Pr(&gt;F)&quot;</span>]]
+if(p.value &gt;<span class="st"> </span><span class="fl">0.05</span>) {
+  <span class="kw">print</span>(<span class="st">&quot;We cannot reject the null hypothesis&quot;</span>)
+} else {
+  <span class="kw">print</span>(<span class="st">&quot;We reject the null hypothesis&quot;</span>)
+}</code></pre></div>
+<pre><code>## [1] &quot;We cannot reject the null hypothesis&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">TukeyHSD</span>(m)</code></pre></div>
+<pre><code>##   Tukey multiple comparisons of means
+##     95% family-wise confidence level
+## 
+## Fit: aov(formula = values ~ groups, data = df)
+## 
+## $groups
+##      diff       lwr      upr     p adj
+## B-A  -8.9 -38.73854 20.93854 0.7424056
+## C-A -16.0 -47.80799 15.80799 0.4365612
+## C-B  -7.1 -40.15583 25.95583 0.8561024</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(<span class="kw">TukeyHSD</span>(m))</code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-34-1.png" width="672" /></p>
+</div>
+</div>
+<div id="question-4-3" class="section level2">
+<h2><span class="header-section-number">5.4</span> Question 4</h2>
+<p>This is Exercise 10 in Chapter 6 of the Textbook [R].</p>
+<div id="problem-3" class="section level3">
+<h3><span class="header-section-number">5.4.1</span> Problem</h3>
+<p>Use the Kruskal–Wallis test (with α = 0.05) to determine whether you should reject the null hypothesis that the means of the four columns of data are equal:</p>
+<table>
+<thead>
+<tr class="header">
+<th>Col 1</th>
+<th>Col 2</th>
+<th>Col 3</th>
+<th>Col 4</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>23.1</td>
+<td>43.1</td>
+<td>56.5</td>
+<td>10002.3</td>
+</tr>
+<tr class="even">
+<td>13.3</td>
+<td>10.2</td>
+<td>32.1</td>
+<td>54.4</td>
+</tr>
+<tr class="odd">
+<td>15.6</td>
+<td>16.2</td>
+<td>43.3</td>
+<td>8.7</td>
+</tr>
+<tr class="even">
+<td>1.2</td>
+<td>0.2</td>
+<td>24.4</td>
+<td>54.4</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="solution-5" class="section level3">
+<h3><span class="header-section-number">5.4.2</span> Solution</h3>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">c1 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">23.1</span>,<span class="fl">13.3</span>,<span class="fl">15.6</span>,<span class="fl">1.2</span>)
+c2 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">43.1</span>,<span class="fl">10.2</span>,<span class="fl">16.2</span>,<span class="fl">0.2</span>)
+c3 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">56.5</span>,<span class="fl">32.1</span>,<span class="fl">43.3</span>,<span class="fl">24.4</span>)
+c4 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">10002.3</span>,<span class="fl">54.4</span>,<span class="fl">8.7</span>,<span class="fl">54.4</span>)
+
+values &lt;-<span class="st"> </span><span class="kw">c</span>(c1,c2,c3,c4)
+groups &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="kw">rep</span>(<span class="st">&quot;c1&quot;</span>,<span class="dv">4</span>),<span class="kw">rep</span>(<span class="st">&quot;c2&quot;</span>,<span class="dv">4</span>),<span class="kw">rep</span>(<span class="st">&quot;c3&quot;</span>,<span class="dv">4</span>),<span class="kw">rep</span>(<span class="st">&quot;c4&quot;</span>,<span class="dv">4</span>))
+
+df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(values,groups)
+
+result &lt;-<span class="st"> </span><span class="kw">kruskal.test</span>(values~groups,<span class="dt">data =</span> df)
+if(result$p.value&gt;<span class="fl">0.05</span>) {
+  <span class="kw">print</span>(<span class="st">&quot;We cannot reject the null hypothesis&quot;</span>)
+} else {
+  <span class="kw">print</span>(<span class="st">&quot;We reject the null hypothesis&quot;</span>)
+}</code></pre></div>
+<pre><code>## [1] &quot;We cannot reject the null hypothesis&quot;</code></pre>
+</div>
+</div>
+<div id="question-5-1" class="section level2">
+<h2><span class="header-section-number">5.5</span> Question 5</h2>
+<p>This is Exercise 12 in Chapter 6 of the Textbook [R].</p>
+<div id="problem-4" class="section level3">
+<h3><span class="header-section-number">5.5.1</span> Problem</h3>
+<p>A researcher wishes to know whether distance traveled to work varies by income. Eleven individuals in each of three income groups are surveyed. The resulting data are as follows (in commuting miles, one-way):</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## This is the script to generate the table. Do not write your answer inside in this block.
+Observations &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dv">1</span>:<span class="dv">11</span>)
+Low &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">5</span>,<span class="dv">4</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">10</span>,<span class="dv">6</span>,<span class="dv">6</span>,<span class="dv">4</span>,<span class="dv">12</span>,<span class="dv">11</span>)
+Medium &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">10</span>,<span class="dv">10</span>,<span class="dv">8</span>,<span class="dv">6</span>,<span class="dv">5</span>,<span class="dv">3</span>,<span class="dv">16</span>,<span class="dv">20</span>,<span class="dv">7</span>,<span class="dv">3</span>,<span class="dv">2</span>)
+High &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">8</span>,<span class="dv">11</span>,<span class="dv">15</span>,<span class="dv">19</span>,<span class="dv">21</span>,<span class="dv">7</span>,<span class="dv">7</span>,<span class="dv">4</span>,<span class="dv">3</span>,<span class="dv">17</span>,<span class="dv">18</span>)
+
+df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(Observations,Low,Medium,High)
+<span class="kw">library</span>(knitr)
+<span class="kw">kable</span>(df)</code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th align="right">Observations</th>
+<th align="right">Low</th>
+<th align="right">Medium</th>
+<th align="right">High</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">1</td>
+<td align="right">5</td>
+<td align="right">10</td>
+<td align="right">8</td>
+</tr>
+<tr class="even">
+<td align="right">2</td>
+<td align="right">4</td>
+<td align="right">10</td>
+<td align="right">11</td>
+</tr>
+<tr class="odd">
+<td align="right">3</td>
+<td align="right">1</td>
+<td align="right">8</td>
+<td align="right">15</td>
+</tr>
+<tr class="even">
+<td align="right">4</td>
+<td align="right">2</td>
+<td align="right">6</td>
+<td align="right">19</td>
+</tr>
+<tr class="odd">
+<td align="right">5</td>
+<td align="right">3</td>
+<td align="right">5</td>
+<td align="right">21</td>
+</tr>
+<tr class="even">
+<td align="right">6</td>
+<td align="right">10</td>
+<td align="right">3</td>
+<td align="right">7</td>
+</tr>
+<tr class="odd">
+<td align="right">7</td>
+<td align="right">6</td>
+<td align="right">16</td>
+<td align="right">7</td>
+</tr>
+<tr class="even">
+<td align="right">8</td>
+<td align="right">6</td>
+<td align="right">20</td>
+<td align="right">4</td>
+</tr>
+<tr class="odd">
+<td align="right">9</td>
+<td align="right">4</td>
+<td align="right">7</td>
+<td align="right">3</td>
+</tr>
+<tr class="even">
+<td align="right">10</td>
+<td align="right">12</td>
+<td align="right">3</td>
+<td align="right">17</td>
+</tr>
+<tr class="odd">
+<td align="right">11</td>
+<td align="right">11</td>
+<td align="right">2</td>
+<td align="right">18</td>
+</tr>
+</tbody>
+</table>
+<p>Use analysis of variance (with α = 0.05) to test the hypothesis that commuting distances do not vary by income. Also evaluate (using R and the Levene test) the assumption of homoscedasticity. Finally, lump all of the data together and produce a histogram, and comment on whether the assumption of normality appears to be satisfied.</p>
+</div>
+<div id="solution-6" class="section level3">
+<h3><span class="header-section-number">5.5.2</span> Solution</h3>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">L &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">5</span>,<span class="dv">4</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">10</span>,<span class="dv">6</span>,<span class="dv">6</span>,<span class="dv">4</span>,<span class="dv">12</span>,<span class="dv">11</span>)
+M &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">10</span>,<span class="dv">10</span>,<span class="dv">8</span>,<span class="dv">6</span>,<span class="dv">5</span>,<span class="dv">3</span>,<span class="dv">16</span>,<span class="dv">20</span>,<span class="dv">7</span>,<span class="dv">3</span>,<span class="dv">2</span>)
+H &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">8</span>,<span class="dv">11</span>,<span class="dv">15</span>,<span class="dv">19</span>,<span class="dv">21</span>,<span class="dv">7</span>,<span class="dv">7</span>,<span class="dv">4</span>,<span class="dv">3</span>,<span class="dv">17</span>,<span class="dv">18</span>)
+
+values &lt;-<span class="st"> </span><span class="kw">c</span>(L,M,H)
+groups &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="kw">rep</span>(<span class="st">&quot;L&quot;</span>,<span class="dv">11</span>),<span class="kw">rep</span>(<span class="st">&quot;M&quot;</span>,<span class="dv">11</span>),<span class="kw">rep</span>(<span class="st">&quot;H&quot;</span>,<span class="dv">11</span>))
+df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(values,groups)
+
+m &lt;-<span class="st"> </span><span class="kw">aov</span>(values~groups,<span class="dt">data =</span> df)
+<span class="kw">summary</span>(m)</code></pre></div>
+<pre><code>##             Df Sum Sq Mean Sq F value Pr(&gt;F)  
+## groups       2  201.0  100.48   3.493 0.0433 *
+## Residuals   30  862.9   28.76                 
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">TukeyHSD</span>(m)</code></pre></div>
+<pre><code>##   Tukey multiple comparisons of means
+##     95% family-wise confidence level
+## 
+## Fit: aov(formula = values ~ groups, data = df)
+## 
+## $groups
+##          diff        lwr        upr     p adj
+## L-H -6.000000 -11.637743 -0.3622571 0.0351337
+## M-H -3.636364  -9.274107  2.0013792 0.2653924
+## M-L  2.363636  -3.274107  8.0013792 0.5619154</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(<span class="kw">TukeyHSD</span>(m))</code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-37-1.png" width="672" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">p.value &lt;-<span class="st"> </span><span class="kw">summary</span>(m)[[<span class="dv">1</span>]][[<span class="dv">1</span>,<span class="st">&quot;Pr(&gt;F)&quot;</span>]]
+if(p.value &gt;<span class="st"> </span><span class="fl">0.05</span>) {
+  <span class="kw">print</span>(<span class="st">&quot;We cannot reject the null hypothesis&quot;</span>)
+} else {
+  <span class="kw">print</span>(<span class="st">&quot;We reject the null hypothesis&quot;</span>)
+}</code></pre></div>
+<pre><code>## [1] &quot;We reject the null hypothesis&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(car)
+<span class="kw">leveneTest</span>(values~groups,<span class="dt">data =</span> df)</code></pre></div>
+<pre><code>## Levene&#39;s Test for Homogeneity of Variance (center = median)
+##       Df F value Pr(&gt;F)
+## group  2  2.1694 0.1318
+##       30</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## p-value = 0.131
+## the assumption of homoscedasticity is satisfied. 
+
+<span class="kw">hist</span>(values)</code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-37-2.png" width="672" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">shapiro.test</span>(values)</code></pre></div>
+<pre><code>## 
+##  Shapiro-Wilk normality test
+## 
+## data:  values
+## W = 0.90693, p-value = 0.008099</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## p-value = 0.008 &lt; 0.05
+## the assumption of normality not satisfied</code></pre></div>
+</div>
+</div>
+<div id="question-6-1" class="section level2">
+<h2><span class="header-section-number">5.6</span> Question 6</h2>
+<p>This is Exercise 13 in Chapter 6 of the Textbook [R].</p>
+<div id="problem-5" class="section level3">
+<h3><span class="header-section-number">5.6.1</span> Problem</h3>
+<p>Data are collected on automobile ownership by surveying residents in central cities, suburbs and rural areas. The results are:</p>
+<table>
+<thead>
+<tr class="header">
+<th></th>
+<th>Central cities</th>
+<th>Suburbs</th>
+<th>Rural areas</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Number of observations</td>
+<td>10</td>
+<td>15</td>
+<td>15</td>
+</tr>
+<tr class="even">
+<td>mean</td>
+<td>1.5</td>
+<td>2.6</td>
+<td>1.2</td>
+</tr>
+<tr class="odd">
+<td>Std. dev</td>
+<td>1.0</td>
+<td>1.1</td>
+<td>1.2</td>
+</tr>
+<tr class="even">
+<td>Overall mean: 1.725</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Overall std.dev: 1.2</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Test the null hypothesis that the means are equal in all three areas.</p>
+</div>
+<div id="solution-7" class="section level3">
+<h3><span class="header-section-number">5.6.2</span> Solution</h3>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">city &lt;-<span class="st"> </span><span class="kw">mvrnorm</span>(<span class="dv">10</span>,<span class="dt">mu =</span> <span class="fl">1.5</span>,<span class="dt">Sigma =</span> <span class="dv">1</span>,<span class="dt">empirical =</span> <span class="ot">TRUE</span>)
+suburb &lt;-<span class="st"> </span><span class="kw">mvrnorm</span>(<span class="dv">15</span>,<span class="dt">mu =</span> <span class="fl">2.6</span>,<span class="dt">Sigma =</span> <span class="fl">1.1</span>^<span class="dv">2</span>,<span class="dt">empirical =</span> <span class="ot">TRUE</span>)
+rural &lt;-<span class="st"> </span><span class="kw">mvrnorm</span>(<span class="dv">15</span>,<span class="dt">mu =</span> <span class="fl">1.2</span>,<span class="dt">Sigma =</span> <span class="fl">1.2</span>^<span class="dv">2</span>,<span class="dt">empirical =</span> <span class="ot">TRUE</span>)
+
+values &lt;-<span class="st"> </span><span class="kw">c</span>(city,suburb,rural)
+groups &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="kw">rep</span>(<span class="st">&quot;city&quot;</span>,<span class="dv">10</span>),<span class="kw">rep</span>(<span class="st">&quot;suburb&quot;</span>,<span class="dv">15</span>),<span class="kw">rep</span>(<span class="st">&quot;rural&quot;</span>,<span class="dv">15</span>))
+df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(values,groups)
+
+m &lt;-<span class="st"> </span><span class="kw">aov</span>(values~groups,<span class="dt">data =</span> df)
+<span class="kw">summary</span>(m)</code></pre></div>
+<pre><code>##             Df Sum Sq Mean Sq F value  Pr(&gt;F)   
+## groups       2   15.9   7.950   6.381 0.00416 **
+## Residuals   37   46.1   1.246                   
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">TukeyHSD</span>(m)</code></pre></div>
+<pre><code>##   Tukey multiple comparisons of means
+##     95% family-wise confidence level
+## 
+## Fit: aov(formula = values ~ groups, data = df)
+## 
+## $groups
+##              diff         lwr       upr     p adj
+## rural-city   -0.3 -1.41257183 0.8125718 0.7888370
+## suburb-city   1.1 -0.01257183 2.2125718 0.0531846
+## suburb-rural  1.4  0.40488550 2.3951145 0.0041221</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(<span class="kw">TukeyHSD</span>(m))</code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-38-1.png" width="672" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">p.value &lt;-<span class="st"> </span><span class="kw">summary</span>(m)[[<span class="dv">1</span>]][[<span class="dv">1</span>,<span class="st">&quot;Pr(&gt;F)&quot;</span>]]
+if(p.value &gt;<span class="st"> </span><span class="fl">0.05</span>) {
+  <span class="kw">print</span>(<span class="st">&quot;We cannot reject the null hypothesis&quot;</span>)
+} else {
+  <span class="kw">print</span>(<span class="st">&quot;We reject the null hypothesis&quot;</span>)
+}</code></pre></div>
+<pre><code>## [1] &quot;We reject the null hypothesis&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">### p-value = 0.004 &lt; 0.05
+### conclusion: reject the null hypothesis
+## the suburbs-rural group are significantly different</code></pre></div>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="lab-inferential-statistics.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="lab-correlation.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
+
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"facebook": true,
+"twitter": true,
+"google": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    if (location.protocol !== "file:" && /^https?:/.test(script.src))
+      script.src  = script.src.replace(/^https?:/, '');
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

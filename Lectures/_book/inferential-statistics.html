@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Statistics for Geography (GEOG 533)</title>
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+  <meta name="description" content="Statistics for Geography (GEOG 533)">
+  <meta name="generator" content="bookdown 0.1 and GitBook 2.6.7">
+
+  <meta property="og:title" content="Statistics for Geography (GEOG 533)" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Statistics for Geography (GEOG 533)" />
+  
+  
+  
+
+<meta name="author" content="Dr. Qiusheng Wu">
+
+<meta name="date" content="2016-11-20">
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+});
+</script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="continuous-probability.html">
+<link rel="next" href="analysis-of-variance.html">
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+<script src="libs/htmlwidgets-0.7/htmlwidgets.js"></script>
+<link href="libs/leaflet-0.7.3/leaflet.css" rel="stylesheet" />
+<script src="libs/leaflet-0.7.3/leaflet.js"></script>
+<link href="libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet" />
+<link href="libs/leaflet-label-0.2.2/leaflet.label.css" rel="stylesheet" />
+<script src="libs/leaflet-label-0.2.2/leaflet.label.js"></script>
+<script src="libs/leaflet-binding-1.0.1.9004/leaflet.js"></script>
+<script src="libs/leaflet-providers-1.0.27/leaflet-providers.js"></script>
+<script src="libs/leaflet-providers-plugin-1.0.1.9004/leaflet-providers-plugin.js"></script>
+<link href="libs/leaflet-markercluster-0.4.0/MarkerCluster.css" rel="stylesheet" />
+<link href="libs/leaflet-markercluster-0.4.0/MarkerCluster.Default.css" rel="stylesheet" />
+<script src="libs/leaflet-markercluster-0.4.0/leaflet.markercluster.js"></script>
+<link href="libs/dygraphs-1.1.1/dygraph.css" rel="stylesheet" />
+<script src="libs/dygraphs-1.1.1/dygraph-combined.js"></script>
+<script src="libs/moment-2.8.4/moment.js"></script>
+<script src="libs/moment-timezone-0.2.5/moment-timezone-with-data.js"></script>
+<script src="libs/dygraphs-binding-1.1.1.2/dygraphs.js"></script>
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+</head>
+
+<body>
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
+<li class="chapter" data-level="" data-path="about-the-author.html"><a href="about-the-author.html"><i class="fa fa-check"></i>About the Author</a></li>
+<li class="chapter" data-level="1" data-path="discrete-probability.html"><a href="discrete-probability.html"><i class="fa fa-check"></i><b>1</b> Discrete Probability</a><ul>
+<li class="chapter" data-level="1.1" data-path="discrete-probability.html"><a href="discrete-probability.html#counting-the-number-of-combinations"><i class="fa fa-check"></i><b>1.1</b> Counting the number of combinations</a></li>
+<li class="chapter" data-level="1.2" data-path="discrete-probability.html"><a href="discrete-probability.html#generating-combinations"><i class="fa fa-check"></i><b>1.2</b> Generating combinations</a></li>
+<li class="chapter" data-level="1.3" data-path="discrete-probability.html"><a href="discrete-probability.html#generating-random-numbers"><i class="fa fa-check"></i><b>1.3</b> Generating random numbers</a></li>
+<li class="chapter" data-level="1.4" data-path="discrete-probability.html"><a href="discrete-probability.html#generating-reproducible-random-numbers"><i class="fa fa-check"></i><b>1.4</b> Generating reproducible random numbers</a></li>
+<li class="chapter" data-level="1.5" data-path="discrete-probability.html"><a href="discrete-probability.html#generating-a-random-sample"><i class="fa fa-check"></i><b>1.5</b> Generating a random sample</a></li>
+<li class="chapter" data-level="1.6" data-path="discrete-probability.html"><a href="discrete-probability.html#generating-random-sequences"><i class="fa fa-check"></i><b>1.6</b> Generating random sequences</a></li>
+<li class="chapter" data-level="1.7" data-path="discrete-probability.html"><a href="discrete-probability.html#binomial-distribution"><i class="fa fa-check"></i><b>1.7</b> Binomial Distribution</a><ul>
+<li class="chapter" data-level="1.7.1" data-path="discrete-probability.html"><a href="discrete-probability.html#probability-functions"><i class="fa fa-check"></i><b>1.7.1</b> Probability functions</a></li>
+<li class="chapter" data-level="1.7.2" data-path="discrete-probability.html"><a href="discrete-probability.html#plot-probability-functions"><i class="fa fa-check"></i><b>1.7.2</b> Plot probability functions</a></li>
+</ul></li>
+<li class="chapter" data-level="1.8" data-path="discrete-probability.html"><a href="discrete-probability.html#geometric-distribution"><i class="fa fa-check"></i><b>1.8</b> Geometric distribution</a></li>
+<li class="chapter" data-level="1.9" data-path="discrete-probability.html"><a href="discrete-probability.html#poisson-distribution"><i class="fa fa-check"></i><b>1.9</b> Poisson Distribution</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="continuous-probability.html"><a href="continuous-probability.html"><i class="fa fa-check"></i><b>2</b> Continuous Probability</a><ul>
+<li class="chapter" data-level="2.1" data-path="continuous-probability.html"><a href="continuous-probability.html#uniform-distribution"><i class="fa fa-check"></i><b>2.1</b> Uniform Distribution</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="continuous-probability.html"><a href="continuous-probability.html#generating-random-samples"><i class="fa fa-check"></i><b>2.1.1</b> Generating Random Samples</a></li>
+<li class="chapter" data-level="2.1.2" data-path="continuous-probability.html"><a href="continuous-probability.html#probability-density-function"><i class="fa fa-check"></i><b>2.1.2</b> Probability Density Function</a></li>
+<li class="chapter" data-level="2.1.3" data-path="continuous-probability.html"><a href="continuous-probability.html#cumulative-distribution-function"><i class="fa fa-check"></i><b>2.1.3</b> Cumulative Distribution Function</a></li>
+<li class="chapter" data-level="2.1.4" data-path="continuous-probability.html"><a href="continuous-probability.html#ploting-using-the-curve-function"><i class="fa fa-check"></i><b>2.1.4</b> Ploting using the <code>curve</code> function</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="continuous-probability.html"><a href="continuous-probability.html#normal-distribution"><i class="fa fa-check"></i><b>2.2</b> Normal Distribution</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="continuous-probability.html"><a href="continuous-probability.html#generating-random-samples-1"><i class="fa fa-check"></i><b>2.2.1</b> Generating Random Samples</a></li>
+<li class="chapter" data-level="2.2.2" data-path="continuous-probability.html"><a href="continuous-probability.html#probability-density-function-1"><i class="fa fa-check"></i><b>2.2.2</b> Probability Density Function</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="continuous-probability.html"><a href="continuous-probability.html#exponential-distribution"><i class="fa fa-check"></i><b>2.3</b> Exponential Distribution</a></li>
+<li class="chapter" data-level="2.4" data-path="continuous-probability.html"><a href="continuous-probability.html#raster-function"><i class="fa fa-check"></i><b>2.4</b> Raster function</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="inferential-statistics.html"><a href="inferential-statistics.html"><i class="fa fa-check"></i><b>3</b> Inferential Statistics</a><ul>
+<li class="chapter" data-level="3.1" data-path="inferential-statistics.html"><a href="inferential-statistics.html#generating-random-samples-2"><i class="fa fa-check"></i><b>3.1</b> Generating random samples</a></li>
+<li class="chapter" data-level="3.2" data-path="inferential-statistics.html"><a href="inferential-statistics.html#sampling-distribution-of-the-mean"><i class="fa fa-check"></i><b>3.2</b> Sampling distribution of the mean</a></li>
+<li class="chapter" data-level="3.3" data-path="inferential-statistics.html"><a href="inferential-statistics.html#confidence-interval-for-the-mean"><i class="fa fa-check"></i><b>3.3</b> Confidence interval for the mean</a></li>
+<li class="chapter" data-level="3.4" data-path="inferential-statistics.html"><a href="inferential-statistics.html#using-mvrnorm-function"><i class="fa fa-check"></i><b>3.4</b> Using mvrnorm function</a></li>
+<li class="chapter" data-level="3.5" data-path="inferential-statistics.html"><a href="inferential-statistics.html#finding-confidence-interval"><i class="fa fa-check"></i><b>3.5</b> Finding Confidence Interval</a><ul>
+<li class="chapter" data-level="3.5.1" data-path="inferential-statistics.html"><a href="inferential-statistics.html#problem"><i class="fa fa-check"></i><b>3.5.1</b> Problem</a></li>
+<li class="chapter" data-level="3.5.2" data-path="inferential-statistics.html"><a href="inferential-statistics.html#solution"><i class="fa fa-check"></i><b>3.5.2</b> Solution</a></li>
+<li class="chapter" data-level="3.5.3" data-path="inferential-statistics.html"><a href="inferential-statistics.html#example"><i class="fa fa-check"></i><b>3.5.3</b> Example</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="inferential-statistics.html"><a href="inferential-statistics.html#one-sample-t-test"><i class="fa fa-check"></i><b>3.6</b> One-sample t-test</a><ul>
+<li class="chapter" data-level="3.6.1" data-path="inferential-statistics.html"><a href="inferential-statistics.html#problem-1"><i class="fa fa-check"></i><b>3.6.1</b> Problem</a></li>
+<li class="chapter" data-level="3.6.2" data-path="inferential-statistics.html"><a href="inferential-statistics.html#example-1"><i class="fa fa-check"></i><b>3.6.2</b> Example</a></li>
+</ul></li>
+<li class="chapter" data-level="3.7" data-path="inferential-statistics.html"><a href="inferential-statistics.html#two-sample-t-test"><i class="fa fa-check"></i><b>3.7</b> Two-sample t-test</a><ul>
+<li class="chapter" data-level="3.7.1" data-path="inferential-statistics.html"><a href="inferential-statistics.html#problem-2"><i class="fa fa-check"></i><b>3.7.1</b> Problem</a></li>
+<li class="chapter" data-level="3.7.2" data-path="inferential-statistics.html"><a href="inferential-statistics.html#example-2"><i class="fa fa-check"></i><b>3.7.2</b> Example</a></li>
+</ul></li>
+<li class="chapter" data-level="3.8" data-path="inferential-statistics.html"><a href="inferential-statistics.html#students-t-distribution"><i class="fa fa-check"></i><b>3.8</b> Student’s t distribution</a><ul>
+<li class="chapter" data-level="3.8.1" data-path="inferential-statistics.html"><a href="inferential-statistics.html#solution-1"><i class="fa fa-check"></i><b>3.8.1</b> Solution</a></li>
+<li class="chapter" data-level="3.8.2" data-path="inferential-statistics.html"><a href="inferential-statistics.html#example-3"><i class="fa fa-check"></i><b>3.8.2</b> Example</a></li>
+</ul></li>
+<li class="chapter" data-level="3.9" data-path="inferential-statistics.html"><a href="inferential-statistics.html#testing-a-sample-proportion"><i class="fa fa-check"></i><b>3.9</b> Testing a sample proportion</a><ul>
+<li class="chapter" data-level="3.9.1" data-path="inferential-statistics.html"><a href="inferential-statistics.html#problem-3"><i class="fa fa-check"></i><b>3.9.1</b> Problem</a></li>
+<li class="chapter" data-level="3.9.2" data-path="inferential-statistics.html"><a href="inferential-statistics.html#solution-2"><i class="fa fa-check"></i><b>3.9.2</b> Solution</a></li>
+</ul></li>
+<li class="chapter" data-level="3.10" data-path="inferential-statistics.html"><a href="inferential-statistics.html#two-sample-proportion-test"><i class="fa fa-check"></i><b>3.10</b> Two-sample proportion test</a><ul>
+<li class="chapter" data-level="3.10.1" data-path="inferential-statistics.html"><a href="inferential-statistics.html#problem-4"><i class="fa fa-check"></i><b>3.10.1</b> Problem</a></li>
+<li class="chapter" data-level="3.10.2" data-path="inferential-statistics.html"><a href="inferential-statistics.html#solution-3"><i class="fa fa-check"></i><b>3.10.2</b> Solution</a></li>
+</ul></li>
+<li class="chapter" data-level="3.11" data-path="inferential-statistics.html"><a href="inferential-statistics.html#online-equation-editor"><i class="fa fa-check"></i><b>3.11</b> Online equation editor</a></li>
+<li class="chapter" data-level="3.12" data-path="inferential-statistics.html"><a href="inferential-statistics.html#getting-started-with-equations"><i class="fa fa-check"></i><b>3.12</b> Getting started with equations</a><ul>
+<li class="chapter" data-level="3.12.1" data-path="inferential-statistics.html"><a href="inferential-statistics.html#matrix"><i class="fa fa-check"></i><b>3.12.1</b> Matrix</a></li>
+<li class="chapter" data-level="3.12.2" data-path="inferential-statistics.html"><a href="inferential-statistics.html#statistics"><i class="fa fa-check"></i><b>3.12.2</b> Statistics</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="analysis-of-variance.html"><a href="analysis-of-variance.html"><i class="fa fa-check"></i><b>4</b> Analysis of Variance</a><ul>
+<li class="chapter" data-level="4.1" data-path="analysis-of-variance.html"><a href="analysis-of-variance.html#hypothesis-testing"><i class="fa fa-check"></i><b>4.1</b> Hypothesis Testing</a><ul>
+<li class="chapter" data-level="4.1.1" data-path="analysis-of-variance.html"><a href="analysis-of-variance.html#problem-5"><i class="fa fa-check"></i><b>4.1.1</b> Problem</a></li>
+<li class="chapter" data-level="4.1.2" data-path="analysis-of-variance.html"><a href="analysis-of-variance.html#solution-4"><i class="fa fa-check"></i><b>4.1.2</b> Solution</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="analysis-of-variance.html"><a href="analysis-of-variance.html#testing-for-normality"><i class="fa fa-check"></i><b>4.2</b> Testing for Normality</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="analysis-of-variance.html"><a href="analysis-of-variance.html#problem-6"><i class="fa fa-check"></i><b>4.2.1</b> Problem</a></li>
+<li class="chapter" data-level="4.2.2" data-path="analysis-of-variance.html"><a href="analysis-of-variance.html#solution-5"><i class="fa fa-check"></i><b>4.2.2</b> Solution</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="analysis-of-variance.html"><a href="analysis-of-variance.html#testing-for-homogeneity"><i class="fa fa-check"></i><b>4.3</b> Testing for Homogeneity</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="analysis-of-variance.html"><a href="analysis-of-variance.html#problem-7"><i class="fa fa-check"></i><b>4.3.1</b> Problem</a></li>
+<li class="chapter" data-level="4.3.2" data-path="analysis-of-variance.html"><a href="analysis-of-variance.html#solution-6"><i class="fa fa-check"></i><b>4.3.2</b> Solution</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="analysis-of-variance.html"><a href="analysis-of-variance.html#kruskal-wallis-test"><i class="fa fa-check"></i><b>4.4</b> Kruskal-Wallis Test</a><ul>
+<li class="chapter" data-level="4.4.1" data-path="analysis-of-variance.html"><a href="analysis-of-variance.html#problem-8"><i class="fa fa-check"></i><b>4.4.1</b> Problem</a></li>
+<li class="chapter" data-level="4.4.2" data-path="analysis-of-variance.html"><a href="analysis-of-variance.html#solution-7"><i class="fa fa-check"></i><b>4.4.2</b> Solution</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="analysis-of-variance.html"><a href="analysis-of-variance.html#chi-squared-distribution"><i class="fa fa-check"></i><b>4.5</b> Chi-squared Distribution</a><ul>
+<li class="chapter" data-level="4.5.1" data-path="analysis-of-variance.html"><a href="analysis-of-variance.html#definition"><i class="fa fa-check"></i><b>4.5.1</b> Definition</a></li>
+<li class="chapter" data-level="4.5.2" data-path="analysis-of-variance.html"><a href="analysis-of-variance.html#solution-8"><i class="fa fa-check"></i><b>4.5.2</b> Solution</a></li>
+</ul></li>
+<li class="chapter" data-level="4.6" data-path="analysis-of-variance.html"><a href="analysis-of-variance.html#f-distribution"><i class="fa fa-check"></i><b>4.6</b> F Distribution</a><ul>
+<li class="chapter" data-level="4.6.1" data-path="analysis-of-variance.html"><a href="analysis-of-variance.html#definition-1"><i class="fa fa-check"></i><b>4.6.1</b> Definition</a></li>
+<li class="chapter" data-level="4.6.2" data-path="analysis-of-variance.html"><a href="analysis-of-variance.html#problem-9"><i class="fa fa-check"></i><b>4.6.2</b> Problem</a></li>
+<li class="chapter" data-level="4.6.3" data-path="analysis-of-variance.html"><a href="analysis-of-variance.html#solution-9"><i class="fa fa-check"></i><b>4.6.3</b> Solution</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="correlation.html"><a href="correlation.html"><i class="fa fa-check"></i><b>5</b> Correlation</a><ul>
+<li class="chapter" data-level="5.1" data-path="correlation.html"><a href="correlation.html#pearsons-correlation"><i class="fa fa-check"></i><b>5.1</b> Pearson’s correlation</a><ul>
+<li class="chapter" data-level="5.1.1" data-path="correlation.html"><a href="correlation.html#problem-10"><i class="fa fa-check"></i><b>5.1.1</b> Problem</a></li>
+<li class="chapter" data-level="5.1.2" data-path="correlation.html"><a href="correlation.html#solution-10"><i class="fa fa-check"></i><b>5.1.2</b> Solution</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="correlation.html"><a href="correlation.html#significance-test"><i class="fa fa-check"></i><b>5.2</b> Significance test</a></li>
+<li class="chapter" data-level="5.3" data-path="correlation.html"><a href="correlation.html#correlation-and-sample-size"><i class="fa fa-check"></i><b>5.3</b> Correlation and sample size</a></li>
+<li class="chapter" data-level="5.4" data-path="correlation.html"><a href="correlation.html#spearmans-correlation"><i class="fa fa-check"></i><b>5.4</b> Spearman’s correlation</a><ul>
+<li class="chapter" data-level="5.4.1" data-path="correlation.html"><a href="correlation.html#problem-11"><i class="fa fa-check"></i><b>5.4.1</b> Problem</a></li>
+<li class="chapter" data-level="5.4.2" data-path="correlation.html"><a href="correlation.html#solution-11"><i class="fa fa-check"></i><b>5.4.2</b> Solution</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="bivariate-regression.html"><a href="bivariate-regression.html"><i class="fa fa-check"></i><b>6</b> Bivariate Regression</a><ul>
+<li class="chapter" data-level="6.1" data-path="bivariate-regression.html"><a href="bivariate-regression.html#example-1-1"><i class="fa fa-check"></i><b>6.1</b> Example 1</a><ul>
+<li class="chapter" data-level="6.1.1" data-path="bivariate-regression.html"><a href="bivariate-regression.html#problem-12"><i class="fa fa-check"></i><b>6.1.1</b> Problem</a></li>
+<li class="chapter" data-level="6.1.2" data-path="bivariate-regression.html"><a href="bivariate-regression.html#solutioin"><i class="fa fa-check"></i><b>6.1.2</b> Solutioin</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="bivariate-regression.html"><a href="bivariate-regression.html#example-2-1"><i class="fa fa-check"></i><b>6.2</b> Example 2</a></li>
+<li class="chapter" data-level="6.3" data-path="bivariate-regression.html"><a href="bivariate-regression.html#example-3-1"><i class="fa fa-check"></i><b>6.3</b> Example 3</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="web-mapping.html"><a href="web-mapping.html"><i class="fa fa-check"></i><b>7</b> Web Mapping</a><ul>
+<li class="chapter" data-level="7.1" data-path="web-mapping.html"><a href="web-mapping.html#useful-websites"><i class="fa fa-check"></i><b>7.1</b> Useful websites</a></li>
+<li class="chapter" data-level="7.2" data-path="web-mapping.html"><a href="web-mapping.html#leaflet"><i class="fa fa-check"></i><b>7.2</b> Leaflet</a><ul>
+<li class="chapter" data-level="7.2.1" data-path="web-mapping.html"><a href="web-mapping.html#installation"><i class="fa fa-check"></i><b>7.2.1</b> Installation</a></li>
+<li class="chapter" data-level="7.2.2" data-path="web-mapping.html"><a href="web-mapping.html#basic-usage"><i class="fa fa-check"></i><b>7.2.2</b> Basic Usage</a></li>
+<li class="chapter" data-level="7.2.3" data-path="web-mapping.html"><a href="web-mapping.html#pipe-operator"><i class="fa fa-check"></i><b>7.2.3</b> Pipe operator</a></li>
+<li class="chapter" data-level="7.2.4" data-path="web-mapping.html"><a href="web-mapping.html#basemaps"><i class="fa fa-check"></i><b>7.2.4</b> Basemaps</a></li>
+<li class="chapter" data-level="7.2.5" data-path="web-mapping.html"><a href="web-mapping.html#markers"><i class="fa fa-check"></i><b>7.2.5</b> Markers</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="web-mapping.html"><a href="web-mapping.html#dygraphs"><i class="fa fa-check"></i><b>7.3</b> Dygraphs</a><ul>
+<li class="chapter" data-level="7.3.1" data-path="web-mapping.html"><a href="web-mapping.html#installation-1"><i class="fa fa-check"></i><b>7.3.1</b> Installation</a></li>
+<li class="chapter" data-level="7.3.2" data-path="web-mapping.html"><a href="web-mapping.html#basic-usage-1"><i class="fa fa-check"></i><b>7.3.2</b> Basic Usage</a></li>
+<li class="chapter" data-level="7.3.3" data-path="web-mapping.html"><a href="web-mapping.html#example-4"><i class="fa fa-check"></i><b>7.3.3</b> Example</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="multiple-regression.html"><a href="multiple-regression.html"><i class="fa fa-check"></i><b>8</b> Multiple Regression</a><ul>
+<li class="chapter" data-level="8.1" data-path="multiple-regression.html"><a href="multiple-regression.html#forumlas"><i class="fa fa-check"></i><b>8.1</b> Forumlas</a></li>
+<li class="chapter" data-level="8.2" data-path="multiple-regression.html"><a href="multiple-regression.html#getting-regression-statistics"><i class="fa fa-check"></i><b>8.2</b> Getting Regression Statistics</a></li>
+<li class="chapter" data-level="8.3" data-path="multiple-regression.html"><a href="multiple-regression.html#multiple-regression-1"><i class="fa fa-check"></i><b>8.3</b> Multiple Regression</a></li>
+<li class="chapter" data-level="8.4" data-path="multiple-regression.html"><a href="multiple-regression.html#categorical-predictors"><i class="fa fa-check"></i><b>8.4</b> Categorical Predictors</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="spatial-data.html"><a href="spatial-data.html"><i class="fa fa-check"></i><b>9</b> Spatial Data</a><ul>
+<li class="chapter" data-level="9.1" data-path="spatial-data.html"><a href="spatial-data.html#read-shapefile"><i class="fa fa-check"></i><b>9.1</b> Read shapefile</a></li>
+<li class="chapter" data-level="9.2" data-path="spatial-data.html"><a href="spatial-data.html#plot-shapefile"><i class="fa fa-check"></i><b>9.2</b> Plot shapefile</a></li>
+<li class="chapter" data-level="9.3" data-path="spatial-data.html"><a href="spatial-data.html#write-shapefile"><i class="fa fa-check"></i><b>9.3</b> Write shapefile</a></li>
+<li class="chapter" data-level="9.4" data-path="spatial-data.html"><a href="spatial-data.html#get-shapefile-properties"><i class="fa fa-check"></i><b>9.4</b> Get shapefile properties</a></li>
+<li class="chapter" data-level="9.5" data-path="spatial-data.html"><a href="spatial-data.html#select-by-attribute"><i class="fa fa-check"></i><b>9.5</b> Select by attribute</a></li>
+<li class="chapter" data-level="9.6" data-path="spatial-data.html"><a href="spatial-data.html#us-census-data"><i class="fa fa-check"></i><b>9.6</b> US Census Data</a></li>
+<li class="chapter" data-level="9.7" data-path="spatial-data.html"><a href="spatial-data.html#census-data-mapping"><i class="fa fa-check"></i><b>9.7</b> Census Data Mapping</a></li>
+<li class="chapter" data-level="9.8" data-path="spatial-data.html"><a href="spatial-data.html#read-single-band-raster"><i class="fa fa-check"></i><b>9.8</b> Read single-band raster</a></li>
+<li class="chapter" data-level="9.9" data-path="spatial-data.html"><a href="spatial-data.html#get-raster-properties"><i class="fa fa-check"></i><b>9.9</b> Get raster properties</a></li>
+<li class="chapter" data-level="9.10" data-path="spatial-data.html"><a href="spatial-data.html#read-multi-band-raster"><i class="fa fa-check"></i><b>9.10</b> Read multi-band raster</a></li>
+<li class="chapter" data-level="9.11" data-path="spatial-data.html"><a href="spatial-data.html#plot-raster-time-series"><i class="fa fa-check"></i><b>9.11</b> Plot raster time series</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="chapter" data-level="" data-path="web-mapping-1.html"><a href="web-mapping-1.html"><i class="fa fa-check"></i>Web Mapping</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Statistics for Geography (GEOG 533)</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="inferential-statistics" class="section level1">
+<h1><span class="header-section-number">3</span> Inferential Statistics</h1>
+<p>You can download the original R notebook document for this page <a href="http://spatial.binghamton.edu/geog533/notebook/Lecture_W09_InferentialStatistics.nb.html">HERE</a>.</p>
+<div id="generating-random-samples-2" class="section level2">
+<h2><span class="header-section-number">3.1</span> Generating random samples</h2>
+<p>Suppose that we interview 500 students on campus, and the results show that the average student spends about 100 minutes each day preparing for classes with a standard deviation of 10 minutes.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">n &lt;-<span class="st"> </span><span class="dv">500</span>
+time.mean &lt;-<span class="st"> </span><span class="dv">100</span>
+time.sd &lt;-<span class="st"> </span><span class="dv">10</span>
+student &lt;-<span class="st"> </span><span class="kw">rnorm</span>(n,<span class="dt">mean =</span> time.mean,<span class="dt">sd=</span>time.sd)
+<span class="kw">hist</span>(student,<span class="dt">breaks =</span> <span class="dv">10</span>,<span class="dt">xlab=</span><span class="st">&quot;Time spent daily (minutes)&quot;</span>)</code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-24-1.png" width="672" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">print</span>(<span class="kw">mean</span>(student))</code></pre></div>
+<pre><code>## [1] 99.50537</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">print</span>(<span class="kw">sd</span>(student))</code></pre></div>
+<pre><code>## [1] 10.18846</code></pre>
+</div>
+<div id="sampling-distribution-of-the-mean" class="section level2">
+<h2><span class="header-section-number">3.2</span> Sampling distribution of the mean</h2>
+<p>What if we repeat the interview many times, e.g., 300 times?</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">n &lt;-<span class="st"> </span><span class="dv">5000</span>
+m &lt;-<span class="st"> </span><span class="dv">300</span>
+time.mean &lt;-<span class="st"> </span><span class="dv">100</span>
+time.sd &lt;-<span class="st"> </span><span class="dv">10</span>
+v &lt;-<span class="st"> </span><span class="kw">vector</span>()
+for(i in <span class="dv">1</span>:m) {
+  x &lt;-<span class="st"> </span><span class="kw">rnorm</span>(n,time.mean,time.sd)
+  avg &lt;-<span class="st"> </span><span class="kw">mean</span>(x)
+  std &lt;-<span class="st"> </span><span class="kw">sd</span>(x)
+  v &lt;-<span class="st"> </span><span class="kw">c</span>(v,avg)
+  <span class="co"># print(avg)</span>
+  <span class="co"># print(std/sqrt(n))</span>
+}
+<span class="kw">hist</span>(v,<span class="dt">breaks =</span> <span class="dv">15</span>,<span class="dt">freq =</span> <span class="ot">FALSE</span>,<span class="dt">xlab=</span><span class="st">&quot;Sample mean (minutes)&quot;</span>)
+<span class="kw">curve</span>(<span class="kw">dnorm</span>(x,<span class="kw">mean</span>(v),<span class="kw">sd</span>(v)),<span class="dt">from =</span> <span class="dv">95</span>,<span class="dt">to =</span> <span class="dv">105</span>,<span class="dt">add =</span> <span class="ot">TRUE</span>,<span class="dt">n =</span> <span class="dv">200</span>,<span class="dt">col=</span><span class="st">&quot;red&quot;</span>)</code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-25-1.png" width="672" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">mean</span>(v)</code></pre></div>
+<pre><code>## [1] 99.99084</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sd</span>(v)</code></pre></div>
+<pre><code>## [1] 0.141565</code></pre>
+</div>
+<div id="confidence-interval-for-the-mean" class="section level2">
+<h2><span class="header-section-number">3.3</span> Confidence interval for the mean</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">q90 &lt;-<span class="st"> </span><span class="kw">qnorm</span>(<span class="fl">0.95</span>)  <span class="co"># 90% confidence interval</span>
+<span class="kw">curve</span>(dnorm,<span class="dt">from =</span> -<span class="dv">3</span>,<span class="dt">to =</span> <span class="dv">3</span>,<span class="dt">main=</span><span class="st">&quot;90% confidence interval&quot;</span>)
+x &lt;-<span class="st"> </span><span class="kw">c</span>(-q90,<span class="kw">seq</span>(-q90,q90,<span class="dt">by =</span> <span class="fl">0.01</span>),q90)
+y &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">0</span>,<span class="kw">dnorm</span>(<span class="kw">seq</span>(-q90,q90,<span class="dt">by =</span> <span class="fl">0.01</span>)),<span class="dv">0</span>)
+<span class="kw">polygon</span>(x,y,<span class="dt">col=</span><span class="st">&quot;red&quot;</span>)</code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-26-1.png" width="672" /></p>
+<p>qnorm(0.95) = 1.64</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">q95 &lt;-<span class="st"> </span><span class="kw">qnorm</span>(<span class="fl">0.975</span>)  <span class="co"># 95% confidence interval</span>
+<span class="kw">curve</span>(dnorm,<span class="dt">from =</span> -<span class="dv">3</span>,<span class="dt">to =</span> <span class="dv">3</span>,<span class="dt">main=</span><span class="st">&quot;95% confidence interval&quot;</span>)
+x &lt;-<span class="st"> </span><span class="kw">c</span>(-q95,<span class="kw">seq</span>(-q95,q95,<span class="dt">by =</span> <span class="fl">0.01</span>),q95)
+y &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">0</span>,<span class="kw">dnorm</span>(<span class="kw">seq</span>(-q95,q95,<span class="dt">by =</span> <span class="fl">0.01</span>)),<span class="dv">0</span>)
+<span class="kw">polygon</span>(x,y,<span class="dt">col=</span><span class="st">&quot;green&quot;</span>)</code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-27-1.png" width="672" /></p>
+<p>qnorm(0.975) = 1.96</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">q99 &lt;-<span class="st"> </span><span class="kw">qnorm</span>(<span class="fl">0.995</span>) <span class="co"># 99% confidence interval</span>
+<span class="kw">curve</span>(dnorm,<span class="dt">from =</span> -<span class="dv">3</span>,<span class="dt">to =</span> <span class="dv">3</span>,<span class="dt">main=</span><span class="st">&quot;99% confidence interval&quot;</span>)
+x &lt;-<span class="st"> </span><span class="kw">c</span>(-q99,<span class="kw">seq</span>(-q99,q99,<span class="dt">by =</span> <span class="fl">0.01</span>),q99)
+y &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">0</span>,<span class="kw">dnorm</span>(<span class="kw">seq</span>(-q99,q99,<span class="dt">by =</span> <span class="fl">0.01</span>)),<span class="dv">0</span>)
+<span class="kw">polygon</span>(x,y,<span class="dt">col=</span><span class="st">&quot;blue&quot;</span>)</code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-28-1.png" width="672" /></p>
+<p>qnorm(0.995) = 2.58</p>
+<p>Suppose that we interview 500 students on campus, and the results show that the average student spends about 100 minutes each day preparing for classes with a standard deviation of 10 minutes. Find 90%, 95%, and 99% confidence intervals.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">q90 &lt;-<span class="st"> </span><span class="kw">qnorm</span>(<span class="fl">0.950</span>)  <span class="co"># 90% confidence interval</span>
+<span class="kw">round</span>(q90,<span class="dv">2</span>)</code></pre></div>
+<pre><code>## [1] 1.64</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">q95 &lt;-<span class="st"> </span><span class="kw">qnorm</span>(<span class="fl">0.975</span>)  <span class="co"># 95% confidence interval</span>
+<span class="kw">round</span>(q95,<span class="dv">2</span>)</code></pre></div>
+<pre><code>## [1] 1.96</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">q99 &lt;-<span class="st"> </span><span class="kw">qnorm</span>(<span class="fl">0.995</span>)  <span class="co"># 99% confidence interval</span>
+<span class="kw">round</span>(q99,<span class="dv">2</span>)</code></pre></div>
+<pre><code>## [1] 2.58</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">std.err &lt;-<span class="st"> </span><span class="dv">10</span>/<span class="kw">sqrt</span>(<span class="dv">500</span>)
+conf<span class="fl">.90</span> &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">100</span>-q90*std.err,<span class="dv">100</span>+q90*std.err) <span class="co">#[99.26, 100.74]</span>
+<span class="kw">round</span>(conf<span class="fl">.90</span>,<span class="dv">2</span>)</code></pre></div>
+<pre><code>## [1]  99.26 100.74</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">conf<span class="fl">.95</span> &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">100</span>-q95*std.err,<span class="dv">100</span>+q95*std.err) <span class="co">#[99.12, 100.88]</span>
+<span class="kw">round</span>(conf<span class="fl">.95</span>,<span class="dv">2</span>)</code></pre></div>
+<pre><code>## [1]  99.12 100.88</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">conf<span class="fl">.99</span> &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">100</span>-q99*std.err,<span class="dv">100</span>+q99*std.err) <span class="co">#[98.85, 101.15]</span>
+<span class="kw">round</span>(conf<span class="fl">.99</span>,<span class="dv">2</span>)</code></pre></div>
+<pre><code>## [1]  98.85 101.15</code></pre>
+</div>
+<div id="using-mvrnorm-function" class="section level2">
+<h2><span class="header-section-number">3.4</span> Using mvrnorm function</h2>
+<p>How to generate random samples from the specified normal distribution with the exact mean and standard deviation?</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(MASS)
+x &lt;-<span class="st"> </span><span class="kw">mvrnorm</span>(<span class="dt">n =</span> <span class="dv">500</span>,<span class="dt">mu =</span> <span class="dv">100</span>,<span class="dt">Sigma =</span> <span class="dv">100</span>,<span class="dt">empirical =</span> <span class="ot">TRUE</span>)
+<span class="kw">mean</span>(x)</code></pre></div>
+<pre><code>## [1] 100</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sd</span>(x)</code></pre></div>
+<pre><code>## [1] 10</code></pre>
+</div>
+<div id="finding-confidence-interval" class="section level2">
+<h2><span class="header-section-number">3.5</span> Finding Confidence Interval</h2>
+<div id="problem" class="section level3">
+<h3><span class="header-section-number">3.5.1</span> Problem</h3>
+<p>You have a sample from a population. Given that sample, you want to determine a confidence interval for the population’s mean.</p>
+</div>
+<div id="solution" class="section level3">
+<h3><span class="header-section-number">3.5.2</span> Solution</h3>
+<ul>
+<li>Apply the t.test function to your sample <code>x</code>:</li>
+<li><code>t.test(x)</code></li>
+<li>The output includes a confidence interval at the 95% confidence level. To see intervals at other levels, use the conf.level argument.</li>
+</ul>
+</div>
+<div id="example" class="section level3">
+<h3><span class="header-section-number">3.5.3</span> Example</h3>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(MASS)
+x &lt;-<span class="st"> </span><span class="kw">mvrnorm</span>(<span class="dt">n =</span> <span class="dv">500</span>,<span class="dt">mu =</span> <span class="dv">100</span>,<span class="dt">Sigma =</span> <span class="dv">100</span>,<span class="dt">empirical =</span> <span class="ot">TRUE</span>)
+<span class="kw">t.test</span>(x,<span class="dt">conf.level =</span> <span class="fl">0.90</span>)    <span class="co">#[99.26, 100.74]</span></code></pre></div>
+<pre><code>## 
+##  One Sample t-test
+## 
+## data:  x
+## t = 223.61, df = 499, p-value &lt; 2.2e-16
+## alternative hypothesis: true mean is not equal to 0
+## 90 percent confidence interval:
+##   99.26303 100.73697
+## sample estimates:
+## mean of x 
+##       100</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">t.test</span>(x,<span class="dt">conf.level =</span> <span class="fl">0.95</span>)    <span class="co">#[99.12, 100.88]</span></code></pre></div>
+<pre><code>## 
+##  One Sample t-test
+## 
+## data:  x
+## t = 223.61, df = 499, p-value &lt; 2.2e-16
+## alternative hypothesis: true mean is not equal to 0
+## 95 percent confidence interval:
+##   99.12135 100.87865
+## sample estimates:
+## mean of x 
+##       100</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">t.test</span>(x,<span class="dt">conf.level =</span> <span class="fl">0.99</span>)    <span class="co">#[98.84, 101.16]</span></code></pre></div>
+<pre><code>## 
+##  One Sample t-test
+## 
+## data:  x
+## t = 223.61, df = 499, p-value &lt; 2.2e-16
+## alternative hypothesis: true mean is not equal to 0
+## 99 percent confidence interval:
+##   98.84363 101.15637
+## sample estimates:
+## mean of x 
+##       100</code></pre>
+</div>
+</div>
+<div id="one-sample-t-test" class="section level2">
+<h2><span class="header-section-number">3.6</span> One-sample t-test</h2>
+<div id="problem-1" class="section level3">
+<h3><span class="header-section-number">3.6.1</span> Problem</h3>
+<p>Suppose that we interview 50 students on campus, and the results show that the average student spends about 99 minutes each day preparing for classes with a standard deviation of 10 minutes.</p>
+<p><strong><em>Null hypothesis</em></strong></p>
+<p><span class="math inline">\(H_o:\mu = 100\)</span></p>
+<p><strong><em>Alternative hypothesis</em></strong></p>
+<p><span class="math inline">\(H_{\alpha}:\mu \neq 100\)</span></p>
+</div>
+<div id="example-1" class="section level3">
+<h3><span class="header-section-number">3.6.2</span> Example</h3>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(MASS)
+x &lt;-<span class="st"> </span><span class="kw">mvrnorm</span>(<span class="dt">n =</span> <span class="dv">500</span>,<span class="dt">mu =</span> <span class="dv">99</span>,<span class="dt">Sigma =</span> <span class="dv">100</span>,<span class="dt">empirical =</span> <span class="ot">TRUE</span>)
+result &lt;-<span class="st"> </span><span class="kw">t.test</span>(x,<span class="dt">mu =</span> <span class="dv">100</span>)
+result</code></pre></div>
+<pre><code>## 
+##  One Sample t-test
+## 
+## data:  x
+## t = -2.2361, df = 499, p-value = 0.02579
+## alternative hypothesis: true mean is not equal to 100
+## 95 percent confidence interval:
+##  98.12135 99.87865
+## sample estimates:
+## mean of x 
+##        99</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">if(result$p.value&gt;<span class="fl">0.05</span>){
+  <span class="kw">print</span>(<span class="st">&quot;We cannot reject the null hypothesis&quot;</span>)
+} else {
+  <span class="kw">print</span>(<span class="st">&quot;We reject the null hypothesis&quot;</span>)}</code></pre></div>
+<pre><code>## [1] &quot;We reject the null hypothesis&quot;</code></pre>
+</div>
+</div>
+<div id="two-sample-t-test" class="section level2">
+<h2><span class="header-section-number">3.7</span> Two-sample t-test</h2>
+<div id="problem-2" class="section level3">
+<h3><span class="header-section-number">3.7.1</span> Problem</h3>
+<p>Suppose that we interview <strong>50 students</strong> on campus, and the results show that the average student spends about <strong>99 minutes</strong> each day preparing for classes with a standard deviation of <strong>10 minutes</strong>.</p>
+<p>Suppose that we interview another <strong>50 students</strong> on campus, and the results show that the average student spends about <strong>98 minutes</strong> each day preparing for classes with a standard deviation of <strong>5 minutes</strong>.</p>
+<p><strong><em>Null hypothesis</em></strong></p>
+<p><span class="math inline">\(H_o: \mu_1 = \mu_2\)</span></p>
+<p><strong><em>Alternative hypothesis</em></strong></p>
+<p><span class="math inline">\(H_a: \mu_1 \neq \mu_2\)</span></p>
+</div>
+<div id="example-2" class="section level3">
+<h3><span class="header-section-number">3.7.2</span> Example</h3>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(MASS)
+x1 &lt;-<span class="st"> </span><span class="kw">mvrnorm</span>(<span class="dt">n =</span> <span class="dv">50</span>,<span class="dt">mu =</span> <span class="dv">99</span>,<span class="dt">Sigma =</span> <span class="dv">100</span>,<span class="dt">empirical =</span> <span class="ot">TRUE</span>)
+x2 &lt;-<span class="st"> </span><span class="kw">mvrnorm</span>(<span class="dt">n =</span> <span class="dv">50</span>,<span class="dt">mu =</span> <span class="dv">98</span>,<span class="dt">Sigma =</span> <span class="dv">25</span>,<span class="dt">empirical =</span> <span class="ot">TRUE</span>)
+result &lt;-<span class="st"> </span><span class="kw">t.test</span>(x1,x2)
+result</code></pre></div>
+<pre><code>## 
+##  Welch Two Sample t-test
+## 
+## data:  x1 and x2
+## t = 0.63246, df = 72.059, p-value = 0.5291
+## alternative hypothesis: true difference in means is not equal to 0
+## 95 percent confidence interval:
+##  -2.151899  4.151899
+## sample estimates:
+## mean of x mean of y 
+##        99        98</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">if(result$p.value&gt;<span class="fl">0.05</span>){
+  <span class="kw">print</span>(<span class="st">&quot;We cannot reject the null hypothesis&quot;</span>)
+} else {
+  <span class="kw">print</span>(<span class="st">&quot;We reject the null hypothesis&quot;</span>)}</code></pre></div>
+<pre><code>## [1] &quot;We cannot reject the null hypothesis&quot;</code></pre>
+</div>
+</div>
+<div id="students-t-distribution" class="section level2">
+<h2><span class="header-section-number">3.8</span> Student’s t distribution</h2>
+<div id="solution-1" class="section level3">
+<h3><span class="header-section-number">3.8.1</span> Solution</h3>
+<ul>
+<li><code>dt(x, df)</code></li>
+<li><code>pt(q, df,lower.tail = TRUE)</code></li>
+<li><code>qt(p, df,lower.tail = TRUE)</code></li>
+<li><code>rt(n, df)</code></li>
+</ul>
+</div>
+<div id="example-3" class="section level3">
+<h3><span class="header-section-number">3.8.2</span> Example</h3>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">qnorm</span>(<span class="fl">0.95</span>)</code></pre></div>
+<pre><code>## [1] 1.644854</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">qnorm</span>(<span class="fl">0.975</span>)</code></pre></div>
+<pre><code>## [1] 1.959964</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">qnorm</span>(<span class="fl">0.995</span>)</code></pre></div>
+<pre><code>## [1] 2.575829</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">qt</span>(<span class="fl">0.95</span>,<span class="dt">df =</span> <span class="dv">10</span>)</code></pre></div>
+<pre><code>## [1] 1.812461</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">qt</span>(<span class="fl">0.975</span>,<span class="dt">df =</span> <span class="dv">10</span>)</code></pre></div>
+<pre><code>## [1] 2.228139</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">qt</span>(<span class="fl">0.995</span>,<span class="dt">df =</span> <span class="dv">10</span>)</code></pre></div>
+<pre><code>## [1] 3.169273</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">curve</span>(<span class="kw">dt</span>(x,<span class="dt">df =</span> <span class="dv">1</span>),<span class="dt">from =</span> -<span class="dv">5</span>,<span class="dt">to =</span> <span class="dv">5</span>,<span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">0</span>,<span class="fl">0.4</span>),<span class="dt">col =</span> <span class="st">&quot;red&quot;</span>)
+<span class="kw">curve</span>(<span class="kw">dt</span>(x,<span class="dt">df =</span> <span class="dv">2</span>),<span class="dt">from =</span> -<span class="dv">5</span>,<span class="dt">to =</span> <span class="dv">5</span>,<span class="dt">col =</span> <span class="st">&quot;green&quot;</span>,<span class="dt">add=</span><span class="ot">TRUE</span>)
+<span class="kw">curve</span>(<span class="kw">dt</span>(x,<span class="dt">df =</span> <span class="dv">5</span>),<span class="dt">from =</span> -<span class="dv">5</span>,<span class="dt">to =</span> <span class="dv">5</span>,<span class="dt">col =</span> <span class="st">&quot;blue&quot;</span>,<span class="dt">add =</span> <span class="ot">TRUE</span>)
+<span class="kw">curve</span>(dnorm,<span class="dt">add=</span><span class="ot">TRUE</span>,<span class="dt">col =</span><span class="st">&quot;black&quot;</span>,<span class="dt">lwd=</span><span class="dv">2</span>)</code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-34-1.png" width="672" /></p>
+</div>
+</div>
+<div id="testing-a-sample-proportion" class="section level2">
+<h2><span class="header-section-number">3.9</span> Testing a sample proportion</h2>
+<div id="problem-3" class="section level3">
+<h3><span class="header-section-number">3.9.1</span> Problem</h3>
+<p>We want to test the hypothesis that more than 30% of U.S. households have internet access (with a significance level of 5%). We collect a sample of 150 households and find that 57 have access.</p>
+</div>
+<div id="solution-2" class="section level3">
+<h3><span class="header-section-number">3.9.2</span> Solution</h3>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">result &lt;-<span class="st"> </span><span class="kw">prop.test</span>(<span class="dv">57</span>,<span class="dt">n =</span> <span class="dv">150</span>,<span class="dt">p =</span> <span class="fl">0.3</span>,<span class="dt">alternative =</span> <span class="st">&quot;greater&quot;</span>)
+result</code></pre></div>
+<pre><code>## 
+##  1-sample proportions test with continuity correction
+## 
+## data:  57 out of 150, null probability 0.3
+## X-squared = 4.1984, df = 1, p-value = 0.02023
+## alternative hypothesis: true p is greater than 0.3
+## 95 percent confidence interval:
+##  0.3143179 1.0000000
+## sample estimates:
+##    p 
+## 0.38</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">if(result$p.value&gt;<span class="fl">0.05</span>) {
+  <span class="kw">print</span>(<span class="st">&quot;We cannot reject the null hypothesis &quot;</span>)
+} else {
+  <span class="kw">print</span>(<span class="st">&quot;We accept the alternative hypothesis&quot;</span>)
+}</code></pre></div>
+<pre><code>## [1] &quot;We accept the alternative hypothesis&quot;</code></pre>
+</div>
+</div>
+<div id="two-sample-proportion-test" class="section level2">
+<h2><span class="header-section-number">3.10</span> Two-sample proportion test</h2>
+<div id="problem-4" class="section level3">
+<h3><span class="header-section-number">3.10.1</span> Problem</h3>
+<p>A random sample of 428 adults from New York City reveals 128 smokers. A random sample of 682 adults from San Francisco reveals 170 smokers. Is the proportion of adult smokers in New York City different from that in San Francisco?</p>
+</div>
+<div id="solution-3" class="section level3">
+<h3><span class="header-section-number">3.10.2</span> Solution</h3>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">result &lt;-<span class="st"> </span><span class="kw">prop.test</span>(<span class="dt">x=</span><span class="kw">c</span>(<span class="dv">128</span>,<span class="dv">170</span>), <span class="dt">n=</span><span class="kw">c</span>(<span class="dv">428</span>,<span class="dv">682</span>))
+result</code></pre></div>
+<pre><code>## 
+##  2-sample test for equality of proportions with continuity
+##  correction
+## 
+## data:  c(128, 170) out of c(428, 682)
+## X-squared = 3.0718, df = 1, p-value = 0.07966
+## alternative hypothesis: two.sided
+## 95 percent confidence interval:
+##  -0.006283211  0.105880328
+## sample estimates:
+##    prop 1    prop 2 
+## 0.2990654 0.2492669</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">if(result$p.value&gt;<span class="fl">0.05</span>) {
+  <span class="kw">print</span>(<span class="st">&quot;We cannot reject the null hypothesis &quot;</span>)
+} else {
+  <span class="kw">print</span>(<span class="st">&quot;We accept the alternative hypothesis&quot;</span>)
+}</code></pre></div>
+<pre><code>## [1] &quot;We cannot reject the null hypothesis &quot;</code></pre>
+</div>
+</div>
+<div id="online-equation-editor" class="section level2">
+<h2><span class="header-section-number">3.11</span> Online equation editor</h2>
+<ul>
+<li><a href="https://www.codecogs.com/latex/eqneditor.php" class="uri">https://www.codecogs.com/latex/eqneditor.php</a></li>
+<li><a href="http://rogercortesi.com/eqn/" class="uri">http://rogercortesi.com/eqn/</a></li>
+</ul>
+</div>
+<div id="getting-started-with-equations" class="section level2">
+<h2><span class="header-section-number">3.12</span> Getting started with equations</h2>
+<p>We can write fractions: <span class="math inline">\(\frac{2}{3}\)</span>. We can also handle things like estimated population growth rate, e.g., <span class="math inline">\(\hat{\lambda}=1.02\)</span>. And, <span class="math inline">\(\sqrt{4}=2\)</span>.</p>
+<p><span class="math display">\[\alpha, \beta,  \gamma, \Gamma\]</span></p>
+<p><span class="math display">\[a \pm b\]</span> <span class="math display">\[x \ge 15\]</span> <span class="math display">\[a_i \ge 0~~~\forall i\]</span></p>
+<div id="matrix" class="section level3">
+<h3><span class="header-section-number">3.12.1</span> Matrix</h3>
+<p><span class="math display">\[A_{m,n} =
+ \begin{pmatrix}
+  a_{1,1} &amp; a_{1,2} &amp; \cdots &amp; a_{1,n} \\
+  a_{2,1} &amp; a_{2,2} &amp; \cdots &amp; a_{2,n} \\
+  \vdots  &amp; \vdots  &amp; \ddots &amp; \vdots  \\
+  a_{m,1} &amp; a_{m,2} &amp; \cdots &amp; a_{m,n}
+ \end{pmatrix}\]</span></p>
+</div>
+<div id="statistics" class="section level3">
+<h3><span class="header-section-number">3.12.2</span> Statistics</h3>
+<p>The binomial probability: <span class="math display">\[f(y|N,p) = \frac{N!}{y!(N-y)!}\cdot p^y \cdot (1-p)^{N-y} = {{N}\choose{y}} \cdot p^y \cdot (1-p)^{N-y}\]</span></p>
+<p>To calculate the <strong>mean</strong> of  observations of variable , you can use: <span class="math display">\[\bar{x} = \frac{1}{n} \sum_{i=1}^{n}x_{i}\]</span></p>
+<p>Note that this equation looks quite nice above where it’s in display math mode. It is more compact but not quite as nice looking if we present it using inline mode, e.g., <span class="math inline">\(\bar{x} = \frac{1}{n} \sum_{i=1}^{n}x_{i}\)</span>.</p>
+<p>Let’s do the same with the equation for <strong>variance</strong>. First the inline version, which is <span class="math inline">\(\sigma^{2} = \frac{\sum\limits_{i=1}^{n} \left(x_{i} - \bar{x}\right)^{2}} {n-1}\)</span>. And then the display mode version: <span class="math display">\[\sigma^{2} = \frac{\sum_{i=1}^{n} 
+  \left(x_{i} - \bar{x}\right)^{2}}
+  {n-1}\]</span></p>
+<p>And, finally, we’ll end with the <strong>standard deviation</strong>. Here’s the inline version, <span class="math inline">\(\sigma = \sqrt{\frac{\sum\limits_{i=1}^{n} \left(x_{i} - \bar{x}\right)^{2}} {n-1}}\)</span>. And here’s the display version. <span class="math display">\[\sigma = \sqrt{\frac{\sum\limits_{i=1}^{n} \left(x_{i} - \bar{x}\right)^{2}} {n-1}}\]</span></p>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="continuous-probability.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="analysis-of-variance.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
+
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"facebook": true,
+"twitter": true,
+"google": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"download": ["_main.pdf", "_main.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    if (location.protocol !== "file:" && /^https?:/.test(script.src))
+      script.src  = script.src.replace(/^https?:/, '');
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

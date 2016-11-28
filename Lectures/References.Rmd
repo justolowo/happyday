@@ -1,0 +1,10 @@
+# References {-}
+
+* [bookdown: Authoring Books with R Markdown](https://bookdown.org/yihui/bookdown/)
+* [htmlwidgets for R](http://www.htmlwidgets.org/)
+* [R Markdown Cheat Sheet - RStudio](https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf)
+* [Statistical Methods for Geography](https://study.sagepub.com/rogerson4e)
+* [R Cookbook](http://goo.gl/eewoiU)
+* [Online LaTex Equation Editor](https://www.codecogs.com/latex/eqneditor.php)
+* [Roger's Online Equation Editor](http://rogercortesi.com/eqn/)
+* [RawGit](http://rawgit.com/)

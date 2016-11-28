@@ -1,0 +1,12 @@
+# Web Mapping {-}
+
+```{r, fig.width=8}
+knitr::include_url("http://spatial.binghamton.edu/leaflet/hometown", 
+  height = "600px")
+```
+
+```{r, fig.width=8}
+knitr::include_app("https://yihui.shinyapps.io/miniUI/", 
+  height = "600px")
+```
+

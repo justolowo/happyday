@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Statistics for Geography (GEOG 533)</title>
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+  <meta name="description" content="Statistics for Geography (GEOG 533)">
+  <meta name="generator" content="bookdown 0.1 and GitBook 2.6.7">
+
+  <meta property="og:title" content="Statistics for Geography (GEOG 533)" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Statistics for Geography (GEOG 533)" />
+  
+  
+  
+
+<meta name="author" content="Dr. Qiusheng Wu">
+
+<meta name="date" content="2016-11-17">
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+});
+</script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="lab-multiple-regression.html">
+
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+<script src="libs/htmlwidgets-0.7/htmlwidgets.js"></script>
+<script src="libs/datatables-binding-0.2/datatables.js"></script>
+<link href="libs/dt-core-1.10.12/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="libs/dt-core-1.10.12/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="libs/dt-core-1.10.12/js/jquery.dataTables.min.js"></script>
+<link href="libs/leaflet-0.7.3/leaflet.css" rel="stylesheet" />
+<script src="libs/leaflet-0.7.3/leaflet.js"></script>
+<link href="libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet" />
+<script src="libs/leaflet-binding-1.0.1/leaflet.js"></script>
+<script src="libs/leaflet-providers-1.0.27/leaflet-providers.js"></script>
+<script src="libs/leaflet-providers-plugin-1.0.1/leaflet-providers-plugin.js"></script>
+<link href="libs/leaflet-markercluster-0.4.0/MarkerCluster.css" rel="stylesheet" />
+<link href="libs/leaflet-markercluster-0.4.0/MarkerCluster.Default.css" rel="stylesheet" />
+<script src="libs/leaflet-markercluster-0.4.0/leaflet.markercluster.js"></script>
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+</head>
+
+<body>
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
+<li class="chapter" data-level="" data-path="about-the-author.html"><a href="about-the-author.html"><i class="fa fa-check"></i>About the Author</a></li>
+<li class="chapter" data-level="1" data-path="lab-descriptive-statistics.html"><a href="lab-descriptive-statistics.html"><i class="fa fa-check"></i><b>1</b> Lab - Descriptive Statistics</a><ul>
+<li class="chapter" data-level="1.1" data-path="lab-descriptive-statistics.html"><a href="lab-descriptive-statistics.html#question-1"><i class="fa fa-check"></i><b>1.1</b> Question 1</a><ul>
+<li class="chapter" data-level="1.1.1" data-path="lab-descriptive-statistics.html"><a href="lab-descriptive-statistics.html#question-1a"><i class="fa fa-check"></i><b>1.1.1</b> Question 1a</a></li>
+<li class="chapter" data-level="1.1.2" data-path="lab-descriptive-statistics.html"><a href="lab-descriptive-statistics.html#question-1b"><i class="fa fa-check"></i><b>1.1.2</b> Question 1b</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="lab-descriptive-statistics.html"><a href="lab-descriptive-statistics.html#question-2"><i class="fa fa-check"></i><b>1.2</b> Question 2</a></li>
+<li class="chapter" data-level="1.3" data-path="lab-descriptive-statistics.html"><a href="lab-descriptive-statistics.html#question-3"><i class="fa fa-check"></i><b>1.3</b> Question 3</a></li>
+<li class="chapter" data-level="1.4" data-path="lab-descriptive-statistics.html"><a href="lab-descriptive-statistics.html#question-4"><i class="fa fa-check"></i><b>1.4</b> Question 4</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="lab-discrete-probability.html"><a href="lab-discrete-probability.html"><i class="fa fa-check"></i><b>2</b> Lab - Discrete Probability</a><ul>
+<li class="chapter" data-level="2.1" data-path="lab-discrete-probability.html"><a href="lab-discrete-probability.html#question-1-1"><i class="fa fa-check"></i><b>2.1</b> Question 1</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="lab-discrete-probability.html"><a href="lab-discrete-probability.html#solution-1"><i class="fa fa-check"></i><b>2.1.1</b> Solution 1</a></li>
+<li class="chapter" data-level="2.1.2" data-path="lab-discrete-probability.html"><a href="lab-discrete-probability.html#solution-2"><i class="fa fa-check"></i><b>2.1.2</b> Solution 2</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="lab-discrete-probability.html"><a href="lab-discrete-probability.html#question-2-1"><i class="fa fa-check"></i><b>2.2</b> Question 2</a></li>
+<li class="chapter" data-level="2.3" data-path="lab-discrete-probability.html"><a href="lab-discrete-probability.html#question-3-1"><i class="fa fa-check"></i><b>2.3</b> Question 3</a></li>
+<li class="chapter" data-level="2.4" data-path="lab-discrete-probability.html"><a href="lab-discrete-probability.html#question-4-1"><i class="fa fa-check"></i><b>2.4</b> Question 4</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="lab-continuous-probability.html"><a href="lab-continuous-probability.html"><i class="fa fa-check"></i><b>3</b> Lab - Continuous Probability</a><ul>
+<li class="chapter" data-level="3.1" data-path="lab-continuous-probability.html"><a href="lab-continuous-probability.html#question-1-2"><i class="fa fa-check"></i><b>3.1</b> Question 1</a><ul>
+<li class="chapter" data-level="3.1.1" data-path="lab-continuous-probability.html"><a href="lab-continuous-probability.html#a"><i class="fa fa-check"></i><b>3.1.1</b> 1a</a></li>
+<li class="chapter" data-level="3.1.2" data-path="lab-continuous-probability.html"><a href="lab-continuous-probability.html#b"><i class="fa fa-check"></i><b>3.1.2</b> 1b</a></li>
+<li class="chapter" data-level="3.1.3" data-path="lab-continuous-probability.html"><a href="lab-continuous-probability.html#c"><i class="fa fa-check"></i><b>3.1.3</b> 1c</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="lab-continuous-probability.html"><a href="lab-continuous-probability.html#question-2-2"><i class="fa fa-check"></i><b>3.2</b> Question 2</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="lab-continuous-probability.html"><a href="lab-continuous-probability.html#a-1"><i class="fa fa-check"></i><b>3.2.1</b> 2a</a></li>
+<li class="chapter" data-level="3.2.2" data-path="lab-continuous-probability.html"><a href="lab-continuous-probability.html#b-1"><i class="fa fa-check"></i><b>3.2.2</b> 2b</a></li>
+<li class="chapter" data-level="3.2.3" data-path="lab-continuous-probability.html"><a href="lab-continuous-probability.html#c-1"><i class="fa fa-check"></i><b>3.2.3</b> 2c</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="lab-continuous-probability.html"><a href="lab-continuous-probability.html#question-3-2"><i class="fa fa-check"></i><b>3.3</b> Question 3</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="lab-continuous-probability.html"><a href="lab-continuous-probability.html#a-2"><i class="fa fa-check"></i><b>3.3.1</b> 3a</a></li>
+<li class="chapter" data-level="3.3.2" data-path="lab-continuous-probability.html"><a href="lab-continuous-probability.html#b-2"><i class="fa fa-check"></i><b>3.3.2</b> 3b</a></li>
+<li class="chapter" data-level="3.3.3" data-path="lab-continuous-probability.html"><a href="lab-continuous-probability.html#c-2"><i class="fa fa-check"></i><b>3.3.3</b> 3c</a></li>
+<li class="chapter" data-level="3.3.4" data-path="lab-continuous-probability.html"><a href="lab-continuous-probability.html#d"><i class="fa fa-check"></i><b>3.3.4</b> 3d</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="lab-inferential-statistics.html"><a href="lab-inferential-statistics.html"><i class="fa fa-check"></i><b>4</b> Lab - Inferential Statistics</a><ul>
+<li class="chapter" data-level="4.1" data-path="lab-inferential-statistics.html"><a href="lab-inferential-statistics.html#question-1-3"><i class="fa fa-check"></i><b>4.1</b> Question 1</a></li>
+<li class="chapter" data-level="4.2" data-path="lab-inferential-statistics.html"><a href="lab-inferential-statistics.html#question-2-3"><i class="fa fa-check"></i><b>4.2</b> Question 2</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="lab-inferential-statistics.html"><a href="lab-inferential-statistics.html#solution-1-1"><i class="fa fa-check"></i><b>4.2.1</b> Solution 1</a></li>
+<li class="chapter" data-level="4.2.2" data-path="lab-inferential-statistics.html"><a href="lab-inferential-statistics.html#solution-2-1"><i class="fa fa-check"></i><b>4.2.2</b> Solution 2</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="lab-inferential-statistics.html"><a href="lab-inferential-statistics.html#question-3-3"><i class="fa fa-check"></i><b>4.3</b> Question 3</a></li>
+<li class="chapter" data-level="4.4" data-path="lab-inferential-statistics.html"><a href="lab-inferential-statistics.html#question-4-2"><i class="fa fa-check"></i><b>4.4</b> Question 4</a></li>
+<li class="chapter" data-level="4.5" data-path="lab-inferential-statistics.html"><a href="lab-inferential-statistics.html#question-5"><i class="fa fa-check"></i><b>4.5</b> Question 5</a></li>
+<li class="chapter" data-level="4.6" data-path="lab-inferential-statistics.html"><a href="lab-inferential-statistics.html#question-6"><i class="fa fa-check"></i><b>4.6</b> Question 6</a></li>
+<li class="chapter" data-level="4.7" data-path="lab-inferential-statistics.html"><a href="lab-inferential-statistics.html#question-7"><i class="fa fa-check"></i><b>4.7</b> Question 7</a></li>
+<li class="chapter" data-level="4.8" data-path="lab-inferential-statistics.html"><a href="lab-inferential-statistics.html#question-8"><i class="fa fa-check"></i><b>4.8</b> Question 8</a></li>
+<li class="chapter" data-level="4.9" data-path="lab-inferential-statistics.html"><a href="lab-inferential-statistics.html#question-9"><i class="fa fa-check"></i><b>4.9</b> Question 9</a></li>
+<li class="chapter" data-level="4.10" data-path="lab-inferential-statistics.html"><a href="lab-inferential-statistics.html#question-10"><i class="fa fa-check"></i><b>4.10</b> Question 10</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="lab-analysis-of-variance.html"><a href="lab-analysis-of-variance.html"><i class="fa fa-check"></i><b>5</b> Lab - Analysis of Variance</a><ul>
+<li class="chapter" data-level="5.1" data-path="lab-analysis-of-variance.html"><a href="lab-analysis-of-variance.html#question-1-4"><i class="fa fa-check"></i><b>5.1</b> Question 1</a><ul>
+<li class="chapter" data-level="5.1.1" data-path="lab-analysis-of-variance.html"><a href="lab-analysis-of-variance.html#problem"><i class="fa fa-check"></i><b>5.1.1</b> Problem</a></li>
+<li class="chapter" data-level="5.1.2" data-path="lab-analysis-of-variance.html"><a href="lab-analysis-of-variance.html#solution"><i class="fa fa-check"></i><b>5.1.2</b> Solution</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="lab-analysis-of-variance.html"><a href="lab-analysis-of-variance.html#question-2-4"><i class="fa fa-check"></i><b>5.2</b> Question 2</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="lab-analysis-of-variance.html"><a href="lab-analysis-of-variance.html#problem-1"><i class="fa fa-check"></i><b>5.2.1</b> Problem</a></li>
+<li class="chapter" data-level="5.2.2" data-path="lab-analysis-of-variance.html"><a href="lab-analysis-of-variance.html#solution-3"><i class="fa fa-check"></i><b>5.2.2</b> Solution</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="lab-analysis-of-variance.html"><a href="lab-analysis-of-variance.html#question-3-4"><i class="fa fa-check"></i><b>5.3</b> Question 3</a><ul>
+<li class="chapter" data-level="5.3.1" data-path="lab-analysis-of-variance.html"><a href="lab-analysis-of-variance.html#problem-2"><i class="fa fa-check"></i><b>5.3.1</b> Problem</a></li>
+<li class="chapter" data-level="5.3.2" data-path="lab-analysis-of-variance.html"><a href="lab-analysis-of-variance.html#solution-4"><i class="fa fa-check"></i><b>5.3.2</b> Solution</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="lab-analysis-of-variance.html"><a href="lab-analysis-of-variance.html#question-4-3"><i class="fa fa-check"></i><b>5.4</b> Question 4</a><ul>
+<li class="chapter" data-level="5.4.1" data-path="lab-analysis-of-variance.html"><a href="lab-analysis-of-variance.html#problem-3"><i class="fa fa-check"></i><b>5.4.1</b> Problem</a></li>
+<li class="chapter" data-level="5.4.2" data-path="lab-analysis-of-variance.html"><a href="lab-analysis-of-variance.html#solution-5"><i class="fa fa-check"></i><b>5.4.2</b> Solution</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="lab-analysis-of-variance.html"><a href="lab-analysis-of-variance.html#question-5-1"><i class="fa fa-check"></i><b>5.5</b> Question 5</a><ul>
+<li class="chapter" data-level="5.5.1" data-path="lab-analysis-of-variance.html"><a href="lab-analysis-of-variance.html#problem-4"><i class="fa fa-check"></i><b>5.5.1</b> Problem</a></li>
+<li class="chapter" data-level="5.5.2" data-path="lab-analysis-of-variance.html"><a href="lab-analysis-of-variance.html#solution-6"><i class="fa fa-check"></i><b>5.5.2</b> Solution</a></li>
+</ul></li>
+<li class="chapter" data-level="5.6" data-path="lab-analysis-of-variance.html"><a href="lab-analysis-of-variance.html#question-6-1"><i class="fa fa-check"></i><b>5.6</b> Question 6</a><ul>
+<li class="chapter" data-level="5.6.1" data-path="lab-analysis-of-variance.html"><a href="lab-analysis-of-variance.html#problem-5"><i class="fa fa-check"></i><b>5.6.1</b> Problem</a></li>
+<li class="chapter" data-level="5.6.2" data-path="lab-analysis-of-variance.html"><a href="lab-analysis-of-variance.html#solution-7"><i class="fa fa-check"></i><b>5.6.2</b> Solution</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="lab-correlation.html"><a href="lab-correlation.html"><i class="fa fa-check"></i><b>6</b> Lab - Correlation</a><ul>
+<li class="chapter" data-level="6.1" data-path="lab-correlation.html"><a href="lab-correlation.html#question-1-5"><i class="fa fa-check"></i><b>6.1</b> Question 1</a><ul>
+<li class="chapter" data-level="6.1.1" data-path="lab-correlation.html"><a href="lab-correlation.html#problem-1a"><i class="fa fa-check"></i><b>6.1.1</b> Problem 1a</a></li>
+<li class="chapter" data-level="6.1.2" data-path="lab-correlation.html"><a href="lab-correlation.html#problem-1b"><i class="fa fa-check"></i><b>6.1.2</b> Problem 1b</a></li>
+<li class="chapter" data-level="6.1.3" data-path="lab-correlation.html"><a href="lab-correlation.html#problem-1c"><i class="fa fa-check"></i><b>6.1.3</b> Problem 1c</a></li>
+<li class="chapter" data-level="6.1.4" data-path="lab-correlation.html"><a href="lab-correlation.html#problem-1d"><i class="fa fa-check"></i><b>6.1.4</b> Problem 1d</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="lab-correlation.html"><a href="lab-correlation.html#question-2-5"><i class="fa fa-check"></i><b>6.2</b> Question 2</a><ul>
+<li class="chapter" data-level="6.2.1" data-path="lab-correlation.html"><a href="lab-correlation.html#problem-6"><i class="fa fa-check"></i><b>6.2.1</b> Problem</a></li>
+<li class="chapter" data-level="6.2.2" data-path="lab-correlation.html"><a href="lab-correlation.html#solution-8"><i class="fa fa-check"></i><b>6.2.2</b> Solution</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="lab-correlation.html"><a href="lab-correlation.html#question-3-5"><i class="fa fa-check"></i><b>6.3</b> Question 3</a><ul>
+<li class="chapter" data-level="6.3.1" data-path="lab-correlation.html"><a href="lab-correlation.html#problem-7"><i class="fa fa-check"></i><b>6.3.1</b> Problem</a></li>
+<li class="chapter" data-level="6.3.2" data-path="lab-correlation.html"><a href="lab-correlation.html#solution-9"><i class="fa fa-check"></i><b>6.3.2</b> Solution</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="lab-correlation.html"><a href="lab-correlation.html#question-4-4"><i class="fa fa-check"></i><b>6.4</b> Question 4</a><ul>
+<li class="chapter" data-level="6.4.1" data-path="lab-correlation.html"><a href="lab-correlation.html#problem-8"><i class="fa fa-check"></i><b>6.4.1</b> Problem</a></li>
+<li class="chapter" data-level="6.4.2" data-path="lab-correlation.html"><a href="lab-correlation.html#solution-10"><i class="fa fa-check"></i><b>6.4.2</b> Solution</a></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="lab-correlation.html"><a href="lab-correlation.html#question-5-2"><i class="fa fa-check"></i><b>6.5</b> Question 5</a><ul>
+<li class="chapter" data-level="6.5.1" data-path="lab-correlation.html"><a href="lab-correlation.html#problem-9"><i class="fa fa-check"></i><b>6.5.1</b> Problem</a></li>
+<li class="chapter" data-level="6.5.2" data-path="lab-correlation.html"><a href="lab-correlation.html#solution-11"><i class="fa fa-check"></i><b>6.5.2</b> Solution</a></li>
+</ul></li>
+<li class="chapter" data-level="6.6" data-path="lab-correlation.html"><a href="lab-correlation.html#question-6-2"><i class="fa fa-check"></i><b>6.6</b> Question 6</a><ul>
+<li class="chapter" data-level="6.6.1" data-path="lab-correlation.html"><a href="lab-correlation.html#problem-10"><i class="fa fa-check"></i><b>6.6.1</b> Problem</a></li>
+<li class="chapter" data-level="6.6.2" data-path="lab-correlation.html"><a href="lab-correlation.html#solution-12"><i class="fa fa-check"></i><b>6.6.2</b> Solution</a></li>
+</ul></li>
+<li class="chapter" data-level="6.7" data-path="lab-correlation.html"><a href="lab-correlation.html#question-7-1"><i class="fa fa-check"></i><b>6.7</b> Question 7</a><ul>
+<li class="chapter" data-level="6.7.1" data-path="lab-correlation.html"><a href="lab-correlation.html#problem-11"><i class="fa fa-check"></i><b>6.7.1</b> Problem</a></li>
+<li class="chapter" data-level="6.7.2" data-path="lab-correlation.html"><a href="lab-correlation.html#solution-13"><i class="fa fa-check"></i><b>6.7.2</b> Solution</a></li>
+</ul></li>
+<li class="chapter" data-level="6.8" data-path="lab-correlation.html"><a href="lab-correlation.html#question-8-1"><i class="fa fa-check"></i><b>6.8</b> Question 8</a><ul>
+<li class="chapter" data-level="6.8.1" data-path="lab-correlation.html"><a href="lab-correlation.html#problem-12"><i class="fa fa-check"></i><b>6.8.1</b> Problem</a></li>
+<li class="chapter" data-level="6.8.2" data-path="lab-correlation.html"><a href="lab-correlation.html#solution-14"><i class="fa fa-check"></i><b>6.8.2</b> Solution</a></li>
+</ul></li>
+<li class="chapter" data-level="6.9" data-path="lab-correlation.html"><a href="lab-correlation.html#question-9-1"><i class="fa fa-check"></i><b>6.9</b> Question 9</a><ul>
+<li class="chapter" data-level="6.9.1" data-path="lab-correlation.html"><a href="lab-correlation.html#problem-9a"><i class="fa fa-check"></i><b>6.9.1</b> Problem 9a</a></li>
+<li class="chapter" data-level="6.9.2" data-path="lab-correlation.html"><a href="lab-correlation.html#problem-9b"><i class="fa fa-check"></i><b>6.9.2</b> Problem 9b</a></li>
+<li class="chapter" data-level="6.9.3" data-path="lab-correlation.html"><a href="lab-correlation.html#problem-9c"><i class="fa fa-check"></i><b>6.9.3</b> Problem 9c</a></li>
+<li class="chapter" data-level="6.9.4" data-path="lab-correlation.html"><a href="lab-correlation.html#problem-9d"><i class="fa fa-check"></i><b>6.9.4</b> Problem 9d</a></li>
+<li class="chapter" data-level="6.9.5" data-path="lab-correlation.html"><a href="lab-correlation.html#problem-9e"><i class="fa fa-check"></i><b>6.9.5</b> Problem 9e</a></li>
+<li class="chapter" data-level="6.9.6" data-path="lab-correlation.html"><a href="lab-correlation.html#problem-9f"><i class="fa fa-check"></i><b>6.9.6</b> Problem 9f</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="lab-bivariate-regression.html"><a href="lab-bivariate-regression.html"><i class="fa fa-check"></i><b>7</b> Lab - Bivariate Regression</a><ul>
+<li class="chapter" data-level="7.1" data-path="lab-bivariate-regression.html"><a href="lab-bivariate-regression.html#question-1-6"><i class="fa fa-check"></i><b>7.1</b> Question 1</a><ul>
+<li class="chapter" data-level="7.1.1" data-path="lab-bivariate-regression.html"><a href="lab-bivariate-regression.html#question-1a-1"><i class="fa fa-check"></i><b>7.1.1</b> Question 1(a)</a></li>
+<li class="chapter" data-level="7.1.2" data-path="lab-bivariate-regression.html"><a href="lab-bivariate-regression.html#question-1b-1"><i class="fa fa-check"></i><b>7.1.2</b> Question 1(b)</a></li>
+<li class="chapter" data-level="7.1.3" data-path="lab-bivariate-regression.html"><a href="lab-bivariate-regression.html#question-1c"><i class="fa fa-check"></i><b>7.1.3</b> Question 1(c)</a></li>
+<li class="chapter" data-level="7.1.4" data-path="lab-bivariate-regression.html"><a href="lab-bivariate-regression.html#question-1d"><i class="fa fa-check"></i><b>7.1.4</b> Question 1(d)</a></li>
+<li class="chapter" data-level="7.1.5" data-path="lab-bivariate-regression.html"><a href="lab-bivariate-regression.html#question-1e"><i class="fa fa-check"></i><b>7.1.5</b> Question 1(e)</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="lab-bivariate-regression.html"><a href="lab-bivariate-regression.html#question-2-6"><i class="fa fa-check"></i><b>7.2</b> Question 2</a><ul>
+<li class="chapter" data-level="7.2.1" data-path="lab-bivariate-regression.html"><a href="lab-bivariate-regression.html#question-2a"><i class="fa fa-check"></i><b>7.2.1</b> Question 2(a)</a></li>
+<li class="chapter" data-level="7.2.2" data-path="lab-bivariate-regression.html"><a href="lab-bivariate-regression.html#question-2b"><i class="fa fa-check"></i><b>7.2.2</b> Question 2(b)</a></li>
+<li class="chapter" data-level="7.2.3" data-path="lab-bivariate-regression.html"><a href="lab-bivariate-regression.html#question-2c"><i class="fa fa-check"></i><b>7.2.3</b> Question 2(c)</a></li>
+<li class="chapter" data-level="7.2.4" data-path="lab-bivariate-regression.html"><a href="lab-bivariate-regression.html#question-2d"><i class="fa fa-check"></i><b>7.2.4</b> Question 2(d)</a></li>
+<li class="chapter" data-level="7.2.5" data-path="lab-bivariate-regression.html"><a href="lab-bivariate-regression.html#question-2e"><i class="fa fa-check"></i><b>7.2.5</b> Question 2(e)</a></li>
+<li class="chapter" data-level="7.2.6" data-path="lab-bivariate-regression.html"><a href="lab-bivariate-regression.html#question-2f"><i class="fa fa-check"></i><b>7.2.6</b> Question 2(f)</a></li>
+<li class="chapter" data-level="7.2.7" data-path="lab-bivariate-regression.html"><a href="lab-bivariate-regression.html#question-2g"><i class="fa fa-check"></i><b>7.2.7</b> Question 2(g)</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="lab-bivariate-regression.html"><a href="lab-bivariate-regression.html#question-3-6"><i class="fa fa-check"></i><b>7.3</b> Question 3</a><ul>
+<li class="chapter" data-level="7.3.1" data-path="lab-bivariate-regression.html"><a href="lab-bivariate-regression.html#problem-13"><i class="fa fa-check"></i><b>7.3.1</b> Problem</a></li>
+<li class="chapter" data-level="7.3.2" data-path="lab-bivariate-regression.html"><a href="lab-bivariate-regression.html#solution-15"><i class="fa fa-check"></i><b>7.3.2</b> Solution</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="lab-bivariate-regression.html"><a href="lab-bivariate-regression.html#question-4-5"><i class="fa fa-check"></i><b>7.4</b> Question 4</a><ul>
+<li class="chapter" data-level="7.4.1" data-path="lab-bivariate-regression.html"><a href="lab-bivariate-regression.html#question-4a"><i class="fa fa-check"></i><b>7.4.1</b> Question 4(a)</a></li>
+<li class="chapter" data-level="7.4.2" data-path="lab-bivariate-regression.html"><a href="lab-bivariate-regression.html#question-4b"><i class="fa fa-check"></i><b>7.4.2</b> Question 4(b)</a></li>
+</ul></li>
+<li class="chapter" data-level="7.5" data-path="lab-bivariate-regression.html"><a href="lab-bivariate-regression.html#question-5-3"><i class="fa fa-check"></i><b>7.5</b> Question 5</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="lab-multiple-regression.html"><a href="lab-multiple-regression.html"><i class="fa fa-check"></i><b>8</b> Lab - Multiple Regression</a><ul>
+<li class="chapter" data-level="8.1" data-path="lab-multiple-regression.html"><a href="lab-multiple-regression.html#question-1-7"><i class="fa fa-check"></i><b>8.1</b> Question 1</a><ul>
+<li class="chapter" data-level="8.1.1" data-path="lab-multiple-regression.html"><a href="lab-multiple-regression.html#question-1a-2"><i class="fa fa-check"></i><b>8.1.1</b> Question 1(a)</a></li>
+<li class="chapter" data-level="8.1.2" data-path="lab-multiple-regression.html"><a href="lab-multiple-regression.html#question-1b-2"><i class="fa fa-check"></i><b>8.1.2</b> Question 1(b)</a></li>
+<li class="chapter" data-level="8.1.3" data-path="lab-multiple-regression.html"><a href="lab-multiple-regression.html#question-1c-1"><i class="fa fa-check"></i><b>8.1.3</b> Question 1(c)</a></li>
+<li class="chapter" data-level="8.1.4" data-path="lab-multiple-regression.html"><a href="lab-multiple-regression.html#question-1d-1"><i class="fa fa-check"></i><b>8.1.4</b> Question 1(d)</a></li>
+<li class="chapter" data-level="8.1.5" data-path="lab-multiple-regression.html"><a href="lab-multiple-regression.html#question-1e-1"><i class="fa fa-check"></i><b>8.1.5</b> Question 1(e)</a></li>
+<li class="chapter" data-level="8.1.6" data-path="lab-multiple-regression.html"><a href="lab-multiple-regression.html#question-1f"><i class="fa fa-check"></i><b>8.1.6</b> Question 1(f)</a></li>
+<li class="chapter" data-level="8.1.7" data-path="lab-multiple-regression.html"><a href="lab-multiple-regression.html#question-1g"><i class="fa fa-check"></i><b>8.1.7</b> Question 1(g)</a></li>
+<li class="chapter" data-level="8.1.8" data-path="lab-multiple-regression.html"><a href="lab-multiple-regression.html#question-1h"><i class="fa fa-check"></i><b>8.1.8</b> Question 1(h)</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="lab-multiple-regression.html"><a href="lab-multiple-regression.html#question-2-7"><i class="fa fa-check"></i><b>8.2</b> Question 2</a><ul>
+<li class="chapter" data-level="8.2.1" data-path="lab-multiple-regression.html"><a href="lab-multiple-regression.html#question-2a-1"><i class="fa fa-check"></i><b>8.2.1</b> Question 2(a)</a></li>
+<li class="chapter" data-level="8.2.2" data-path="lab-multiple-regression.html"><a href="lab-multiple-regression.html#question-2b-1"><i class="fa fa-check"></i><b>8.2.2</b> Question 2(b)</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="lab-multiple-regression.html"><a href="lab-multiple-regression.html#question-3-7"><i class="fa fa-check"></i><b>8.3</b> Question 3</a><ul>
+<li class="chapter" data-level="8.3.1" data-path="lab-multiple-regression.html"><a href="lab-multiple-regression.html#question-3a"><i class="fa fa-check"></i><b>8.3.1</b> Question 3(a)</a></li>
+<li class="chapter" data-level="8.3.2" data-path="lab-multiple-regression.html"><a href="lab-multiple-regression.html#question-3b"><i class="fa fa-check"></i><b>8.3.2</b> Question 3(b)</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="midterm-exam.html"><a href="midterm-exam.html"><i class="fa fa-check"></i><b>9</b> Midterm Exam</a><ul>
+<li class="chapter" data-level="9.1" data-path="midterm-exam.html"><a href="midterm-exam.html#question-1-25-pt."><i class="fa fa-check"></i><b>9.1</b> Question 1 (25 pt.)</a><ul>
+<li class="chapter" data-level="9.1.1" data-path="midterm-exam.html"><a href="midterm-exam.html#question-1a-3"><i class="fa fa-check"></i><b>9.1.1</b> Question 1a</a></li>
+<li class="chapter" data-level="9.1.2" data-path="midterm-exam.html"><a href="midterm-exam.html#question-1b-3"><i class="fa fa-check"></i><b>9.1.2</b> Question 1b</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="midterm-exam.html"><a href="midterm-exam.html#question-2-25-pt."><i class="fa fa-check"></i><b>9.2</b> Question 2 (25 pt.)</a><ul>
+<li class="chapter" data-level="9.2.1" data-path="midterm-exam.html"><a href="midterm-exam.html#question-2a-2"><i class="fa fa-check"></i><b>9.2.1</b> Question 2a</a></li>
+<li class="chapter" data-level="9.2.2" data-path="midterm-exam.html"><a href="midterm-exam.html#question-2b-2"><i class="fa fa-check"></i><b>9.2.2</b> Question 2b</a></li>
+<li class="chapter" data-level="9.2.3" data-path="midterm-exam.html"><a href="midterm-exam.html#question-2c-1"><i class="fa fa-check"></i><b>9.2.3</b> Question 2c</a></li>
+<li class="chapter" data-level="9.2.4" data-path="midterm-exam.html"><a href="midterm-exam.html#question-2d-1"><i class="fa fa-check"></i><b>9.2.4</b> Question 2d</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="midterm-exam.html"><a href="midterm-exam.html#question-3-25-pt."><i class="fa fa-check"></i><b>9.3</b> Question 3 (25 pt.)</a><ul>
+<li class="chapter" data-level="9.3.1" data-path="midterm-exam.html"><a href="midterm-exam.html#question-3a-1"><i class="fa fa-check"></i><b>9.3.1</b> Question 3a</a></li>
+<li class="chapter" data-level="9.3.2" data-path="midterm-exam.html"><a href="midterm-exam.html#question-3b-1"><i class="fa fa-check"></i><b>9.3.2</b> Question 3b</a></li>
+<li class="chapter" data-level="9.3.3" data-path="midterm-exam.html"><a href="midterm-exam.html#question-3c"><i class="fa fa-check"></i><b>9.3.3</b> Question 3c</a></li>
+<li class="chapter" data-level="9.3.4" data-path="midterm-exam.html"><a href="midterm-exam.html#question-3d"><i class="fa fa-check"></i><b>9.3.4</b> Question 3d</a></li>
+</ul></li>
+<li class="chapter" data-level="9.4" data-path="midterm-exam.html"><a href="midterm-exam.html#question-4-25-pt."><i class="fa fa-check"></i><b>9.4</b> Question 4 (25 pt.)</a><ul>
+<li class="chapter" data-level="9.4.1" data-path="midterm-exam.html"><a href="midterm-exam.html#question-4a-1"><i class="fa fa-check"></i><b>9.4.1</b> Question 4a</a></li>
+<li class="chapter" data-level="9.4.2" data-path="midterm-exam.html"><a href="midterm-exam.html#question-4b-1"><i class="fa fa-check"></i><b>9.4.2</b> Question 4b</a></li>
+<li class="chapter" data-level="9.4.3" data-path="midterm-exam.html"><a href="midterm-exam.html#question-4c"><i class="fa fa-check"></i><b>9.4.3</b> Question 4c</a></li>
+<li class="chapter" data-level="9.4.4" data-path="midterm-exam.html"><a href="midterm-exam.html#question-4d"><i class="fa fa-check"></i><b>9.4.4</b> Question 4d</a></li>
+</ul></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Statistics for Geography (GEOG 533)</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="midterm-exam" class="section level1">
+<h1><span class="header-section-number">9</span> Midterm Exam</h1>
+<p>What to submit: An <strong>R notebook/html document</strong> that contains the script/output for each question.File name convention for submissions: lastname_firstname_midterm.zip. You have 60 minutes (8:30-9:30 am) to complete the exam. There will be a 10% penalty per 10 minutes for late submissions.</p>
+<div id="question-1-25-pt." class="section level2">
+<h2><span class="header-section-number">9.1</span> Question 1 (25 pt.)</h2>
+<p>The <strong>iris</strong> data set in the <strong>datasets</strong> package contains 150 cases (rows) and 5 variables (columns).</p>
+<div id="question-1a-3" class="section level3">
+<h3><span class="header-section-number">9.1.1</span> Question 1a</h3>
+<p>Randomly select half of the cases as training dataset and the remaining half as test dataset.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(datasets)
+df &lt;-<span class="st"> </span>iris
+<span class="kw">set.seed</span>(<span class="dv">100</span>)
+nrow &lt;-<span class="st"> </span><span class="kw">nrow</span>(df)
+id &lt;-<span class="st"> </span><span class="dv">1</span>:nrow
+train.index &lt;-<span class="st"> </span><span class="kw">sort</span>(<span class="kw">sample</span>(id,nrow/<span class="dv">2</span>))
+train.index</code></pre></div>
+<pre><code>##  [1]   9  12  15  20  21  22  24  25  26  27  28  31  32  33  34  37  39
+## [18]  42  45  47  48  51  52  53  55  57  58  59  64  67  69  70  71  72
+## [35]  75  78  81  82  84  85  86  88  89  91  92  95  96  99 102 103 104
+## [52] 109 110 111 112 114 117 118 119 120 121 123 124 125 127 129 133 135
+## [69] 137 138 141 143 146 148 149</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">test.index &lt;-<span class="st"> </span>id[-train.index]
+test.index</code></pre></div>
+<pre><code>##  [1]   1   2   3   4   5   6   7   8  10  11  13  14  16  17  18  19  23
+## [18]  29  30  35  36  38  40  41  43  44  46  49  50  54  56  60  61  62
+## [35]  63  65  66  68  73  74  76  77  79  80  83  87  90  93  94  97  98
+## [52] 100 101 105 106 107 108 113 115 116 122 126 128 130 131 132 134 136
+## [69] 139 140 142 144 145 147 150</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">train.df &lt;-<span class="st"> </span>df[train.index,]
+test.df &lt;-<span class="st"> </span>df[test.index,]
+
+if(!(<span class="kw">require</span>(DT))) <span class="kw">install.packages</span>(<span class="st">&quot;DT&quot;</span>)
+<span class="kw">library</span>(DT)
+<span class="kw">datatable</span>(train.df,<span class="dt">caption =</span> <span class="st">&quot;Training dataset&quot;</span>,<span class="dt">options =</span> <span class="kw">list</span>(<span class="dt">pageLength =</span> <span class="dv">5</span>))</code></pre></div>
+<div id="htmlwidget-7742810aa9efcda86fc6" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-7742810aa9efcda86fc6">{"x":{"filter":"none","caption":"<caption>Training dataset\u003c/caption>","data":[["9","12","15","20","21","22","24","25","26","27","28","31","32","33","34","37","39","42","45","47","48","51","52","53","55","57","58","59","64","67","69","70","71","72","75","78","81","82","84","85","86","88","89","91","92","95","96","99","102","103","104","109","110","111","112","114","117","118","119","120","121","123","124","125","127","129","133","135","137","138","141","143","146","148","149"],[4.4,4.8,5.8,5.1,5.4,5.1,5.1,4.8,5,5,5.2,4.8,5.4,5.2,5.5,5.5,4.4,4.5,5.1,5.1,4.6,7,6.4,6.9,6.5,6.3,4.9,6.6,6.1,5.6,6.2,5.6,5.9,6.1,6.4,6.7,5.5,5.5,6,5.4,6,6.3,5.6,5.5,6.1,5.6,5.7,5.1,5.8,7.1,6.3,6.7,7.2,6.5,6.4,5.7,6.5,7.7,7.7,6,6.9,7.7,6.3,6.7,6.2,6.4,6.4,6.1,6.3,6.4,6.7,5.8,6.7,6.5,6.2],[2.9,3.4,4,3.8,3.4,3.7,3.3,3.4,3,3.4,3.5,3.1,3.4,4.1,4.2,3.5,3,2.3,3.8,3.8,3.2,3.2,3.2,3.1,2.8,3.3,2.4,2.9,2.9,3,2.2,2.5,3.2,2.8,2.9,3,2.4,2.4,2.7,3,3.4,2.3,3,2.6,3,2.7,3,2.5,2.7,3,2.9,2.5,3.6,3.2,2.7,2.5,3,3.8,2.6,2.2,3.2,2.8,2.7,3.3,2.8,2.8,2.8,2.6,3.4,3.1,3.1,2.7,3,3,3.4],[1.4,1.6,1.2,1.5,1.7,1.5,1.7,1.9,1.6,1.6,1.5,1.6,1.5,1.5,1.4,1.3,1.3,1.3,1.9,1.6,1.4,4.7,4.5,4.9,4.6,4.7,3.3,4.6,4.7,4.5,4.5,3.9,4.8,4,4.3,5,3.8,3.7,5.1,4.5,4.5,4.4,4.1,4.4,4.6,4.2,4.2,3,5.1,5.9,5.6,5.8,6.1,5.1,5.3,5,5.5,6.7,6.9,5,5.7,6.7,4.9,5.7,4.8,5.6,5.6,5.6,5.6,5.5,5.6,5.1,5.2,5.2,5.4],[0.2,0.2,0.2,0.3,0.2,0.4,0.5,0.2,0.2,0.4,0.2,0.2,0.4,0.1,0.2,0.2,0.2,0.3,0.4,0.2,0.2,1.4,1.5,1.5,1.5,1.6,1,1.3,1.4,1.5,1.5,1.1,1.8,1.3,1.3,1.7,1.1,1,1.6,1.5,1.6,1.3,1.3,1.2,1.4,1.3,1.2,1.1,1.9,2.1,1.8,1.8,2.5,2,1.9,2,1.8,2.2,2.3,1.5,2.3,2,1.8,2.1,1.8,2.1,2.2,1.4,2.4,1.8,2.4,1.9,2.3,2,2.3],["setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> \u003c/th>\n      <th>Sepal.Length\u003c/th>\n      <th>Sepal.Width\u003c/th>\n      <th>Petal.Length\u003c/th>\n      <th>Petal.Width\u003c/th>\n      <th>Species\u003c/th>\n    \u003c/tr>\n  \u003c/thead>\n\u003c/table>","options":{"pageLength":5,"columnDefs":[{"className":"dt-right","targets":[1,2,3,4]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[5,10,25,50,100]},"selection":{"mode":"multiple","selected":null,"target":"row"}},"evals":[],"jsHooks":[]}</script>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">datatable</span>(test.df,<span class="dt">caption =</span> <span class="st">&quot;Test dataset&quot;</span>,<span class="dt">options =</span> <span class="kw">list</span>(<span class="dt">pageLength =</span> <span class="dv">5</span>))</code></pre></div>
+<div id="htmlwidget-7ff5a4574c4462479745" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-7ff5a4574c4462479745">{"x":{"filter":"none","caption":"<caption>Test dataset\u003c/caption>","data":[["1","2","3","4","5","6","7","8","10","11","13","14","16","17","18","19","23","29","30","35","36","38","40","41","43","44","46","49","50","54","56","60","61","62","63","65","66","68","73","74","76","77","79","80","83","87","90","93","94","97","98","100","101","105","106","107","108","113","115","116","122","126","128","130","131","132","134","136","139","140","142","144","145","147","150"],[5.1,4.9,4.7,4.6,5,5.4,4.6,5,4.9,5.4,4.8,4.3,5.7,5.4,5.1,5.7,4.6,5.2,4.7,4.9,5,4.9,5.1,5,4.4,5,4.8,5.3,5,5.5,5.7,5.2,5,5.9,6,5.6,6.7,5.8,6.3,6.1,6.6,6.8,6,5.7,5.8,6.7,5.5,5.8,5,5.7,6.2,5.7,6.3,6.5,7.6,4.9,7.3,6.8,5.8,6.4,5.6,7.2,6.1,7.2,7.4,7.9,6.3,7.7,6,6.9,6.9,6.8,6.7,6.3,5.9],[3.5,3,3.2,3.1,3.6,3.9,3.4,3.4,3.1,3.7,3,3,4.4,3.9,3.5,3.8,3.6,3.4,3.2,3.1,3.2,3.6,3.4,3.5,3.2,3.5,3,3.7,3.3,2.3,2.8,2.7,2,3,2.2,2.9,3.1,2.7,2.5,2.8,3,2.8,2.9,2.6,2.7,3.1,2.5,2.6,2.3,2.9,2.9,2.8,3.3,3,3,2.5,2.9,3,2.8,3.2,2.8,3.2,3,3,2.8,3.8,2.8,3,3,3.1,3.1,3.2,3.3,2.5,3],[1.4,1.4,1.3,1.5,1.4,1.7,1.4,1.5,1.5,1.5,1.4,1.1,1.5,1.3,1.4,1.7,1,1.4,1.6,1.5,1.2,1.4,1.5,1.3,1.3,1.6,1.4,1.5,1.4,4,4.5,3.9,3.5,4.2,4,3.6,4.4,4.1,4.9,4.7,4.4,4.8,4.5,3.5,3.9,4.7,4,4,3.3,4.2,4.3,4.1,6,5.8,6.6,4.5,6.3,5.5,5.1,5.3,4.9,6,4.9,5.8,6.1,6.4,5.1,6.1,4.8,5.4,5.1,5.9,5.7,5,5.1],[0.2,0.2,0.2,0.2,0.2,0.4,0.3,0.2,0.1,0.2,0.1,0.1,0.4,0.4,0.3,0.3,0.2,0.2,0.2,0.2,0.2,0.1,0.2,0.3,0.2,0.6,0.3,0.2,0.2,1.3,1.3,1.4,1,1.5,1,1.3,1.4,1,1.5,1.2,1.4,1.4,1.5,1,1.2,1.5,1.3,1.2,1,1.3,1.3,1.3,2.5,2.2,2.1,1.7,1.8,2.1,2.4,2.3,2,1.8,1.8,1.6,1.9,2,1.5,2.3,1.8,2.1,2.3,2.3,2.5,1.9,1.8],["setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> \u003c/th>\n      <th>Sepal.Length\u003c/th>\n      <th>Sepal.Width\u003c/th>\n      <th>Petal.Length\u003c/th>\n      <th>Petal.Width\u003c/th>\n      <th>Species\u003c/th>\n    \u003c/tr>\n  \u003c/thead>\n\u003c/table>","options":{"pageLength":5,"columnDefs":[{"className":"dt-right","targets":[1,2,3,4]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[5,10,25,50,100]},"selection":{"mode":"multiple","selected":null,"target":"row"}},"evals":[],"jsHooks":[]}</script>
+</div>
+<div id="question-1b-3" class="section level3">
+<h3><span class="header-section-number">9.1.2</span> Question 1b</h3>
+<p>Find out the number of each species (<em>setosa, versicolor, and virginica</em>) in the training and test datasets, respectively.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">table</span>(train.df$Species)</code></pre></div>
+<pre><code>## 
+##     setosa versicolor  virginica 
+##         21         27         27</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">table</span>(test.df$Species)</code></pre></div>
+<pre><code>## 
+##     setosa versicolor  virginica 
+##         29         23         23</code></pre>
+</div>
+</div>
+<div id="question-2-25-pt." class="section level2">
+<h2><span class="header-section-number">9.2</span> Question 2 (25 pt.)</h2>
+<p>Assume that the probabilities of boy and girl births are <strong>0.505</strong> and <strong>0.495</strong>, respectively.</p>
+<div id="question-2a-2" class="section level3">
+<h3><span class="header-section-number">9.2.1</span> Question 2a</h3>
+<p>What’s the probability of having exactly 50 boys out of 100 births? <strong>(X = 50)</strong></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">answer_2a &lt;-<span class="st"> </span><span class="kw">dbinom</span>(<span class="dv">50</span>,<span class="dt">size =</span> <span class="dv">100</span>,<span class="dt">prob =</span> <span class="fl">0.505</span>)
+<span class="kw">print</span>(answer_2a)</code></pre></div>
+<pre><code>## [1] 0.07919226</code></pre>
+<p>The answer is <strong>0.0791923</strong></p>
+</div>
+<div id="question-2b-2" class="section level3">
+<h3><span class="header-section-number">9.2.2</span> Question 2b</h3>
+<p>What’s the probability of having more than 60 boys out of 100 births? <strong>(X &gt; 60)</strong></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">answer_2b &lt;-<span class="st"> </span><span class="kw">pbinom</span>(<span class="dv">60</span>,<span class="dt">size =</span> <span class="dv">100</span>,<span class="dt">prob =</span> <span class="fl">0.505</span>,<span class="dt">lower.tail =</span> <span class="ot">FALSE</span>)
+<span class="kw">print</span>(answer_2b)</code></pre></div>
+<pre><code>## [1] 0.02241835</code></pre>
+<p>The answer is <strong>0.0224184</strong></p>
+</div>
+<div id="question-2c-1" class="section level3">
+<h3><span class="header-section-number">9.2.3</span> Question 2c</h3>
+<p>What’s the probability of having between 40 and 60 boys out of 100 births? <strong>(40 &lt; X ≤ 60)</strong></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">answer_2c &lt;-<span class="st"> </span><span class="kw">diff</span>(<span class="kw">pbinom</span>(<span class="kw">c</span>(<span class="dv">40</span>,<span class="dv">60</span>),<span class="dt">size =</span> <span class="dv">100</span>,<span class="dt">prob =</span> <span class="fl">0.505</span>))
+<span class="kw">print</span>(answer_2c)</code></pre></div>
+<pre><code>## [1] 0.9550539</code></pre>
+<p>The answer is <strong>0.9550539</strong></p>
+</div>
+<div id="question-2d-1" class="section level3">
+<h3><span class="header-section-number">9.2.4</span> Question 2d</h3>
+<p>Plot the density function of the number of boy births out of 100.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="dv">0</span>:<span class="dv">100</span>
+y &lt;-<span class="st"> </span><span class="kw">dbinom</span>(x,<span class="dt">size =</span> <span class="dv">100</span>,<span class="dt">prob =</span> <span class="fl">0.505</span>)
+<span class="kw">plot</span>(x,y,<span class="dt">type =</span> <span class="st">&quot;b&quot;</span>,<span class="dt">pch=</span><span class="dv">16</span>)</code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-96-1.png" width="672" /></p>
+</div>
+</div>
+<div id="question-3-25-pt." class="section level2">
+<h2><span class="header-section-number">9.3</span> Question 3 (25 pt.)</h2>
+<p>If cars arrive randomly at a traffic light following posission distribution at the rate of five every ten seconds.</p>
+<div id="question-3a-1" class="section level3">
+<h3><span class="header-section-number">9.3.1</span> Question 3a</h3>
+<p>What the probability that exactly 30 cars arrive in the next minute (60 seconds)? (X=30)</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">answer_3a &lt;-<span class="st"> </span><span class="kw">dpois</span>(<span class="dv">30</span>,<span class="dt">lambda =</span> <span class="dv">5</span>*<span class="dv">6</span>)
+<span class="kw">print</span>(answer_3a)</code></pre></div>
+<pre><code>## [1] 0.07263453</code></pre>
+<p>The answer is <strong>0.0726345</strong></p>
+</div>
+<div id="question-3b-1" class="section level3">
+<h3><span class="header-section-number">9.3.2</span> Question 3b</h3>
+<p>What’s the probability that more than 40 cars arrive in the next minute (60 seconds)? (X&gt;40)</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">answer_3b &lt;-<span class="st"> </span><span class="kw">ppois</span>(<span class="dv">40</span>,<span class="dt">lambda =</span> <span class="dv">5</span>*<span class="dv">6</span>,<span class="dt">lower.tail =</span> <span class="ot">FALSE</span>)
+<span class="kw">print</span>(answer_3b)</code></pre></div>
+<pre><code>## [1] 0.03230957</code></pre>
+<p>The answer is <strong>0.0323096</strong></p>
+</div>
+<div id="question-3c" class="section level3">
+<h3><span class="header-section-number">9.3.3</span> Question 3c</h3>
+<p>What’s the probability that between 20 and 40 cars arrive in the next minute (60 seconds)?</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">answer_3c &lt;-<span class="st"> </span><span class="kw">diff</span>(<span class="kw">ppois</span>(<span class="kw">c</span>(<span class="dv">20</span>,<span class="dv">40</span>),<span class="dt">lambda =</span> <span class="dv">5</span>*<span class="dv">6</span>))
+<span class="kw">print</span>(answer_3c)</code></pre></div>
+<pre><code>## [1] 0.9324058</code></pre>
+<p>The answer is <strong>0.9324058</strong></p>
+</div>
+<div id="question-3d" class="section level3">
+<h3><span class="header-section-number">9.3.4</span> Question 3d</h3>
+<p>Plot the density function of 0-100 cars arriving in the next minute (60 seconds).</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="dv">0</span>:<span class="dv">100</span>
+y &lt;-<span class="st"> </span><span class="kw">dpois</span>(x,<span class="dt">lambda =</span> <span class="dv">30</span>)
+<span class="kw">plot</span>(x,y,<span class="dt">type =</span> <span class="st">&quot;b&quot;</span>,<span class="dt">pch=</span><span class="dv">16</span>)</code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-100-1.png" width="672" /></p>
+</div>
+</div>
+<div id="question-4-25-pt." class="section level2">
+<h2><span class="header-section-number">9.4</span> Question 4 (25 pt.)</h2>
+<p>The number of customers at a bank each day is found to be normally distributed with mean µ = 250 and standard deviation σ=80.</p>
+<div id="question-4a-1" class="section level3">
+<h3><span class="header-section-number">9.4.1</span> Question 4a</h3>
+<p>What fraction of days will have more than 300 customers? (X&gt;300)</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">answer_4a &lt;-<span class="st"> </span><span class="kw">pnorm</span>(<span class="dv">300</span>,<span class="dt">mean =</span> <span class="dv">250</span>,<span class="dt">sd =</span> <span class="dv">80</span>,<span class="dt">lower.tail =</span> <span class="ot">FALSE</span>)
+<span class="kw">print</span>(answer_4a)</code></pre></div>
+<pre><code>## [1] 0.2659855</code></pre>
+<p>The answer is <strong>0.2659855</strong></p>
+</div>
+<div id="question-4b-1" class="section level3">
+<h3><span class="header-section-number">9.4.2</span> Question 4b</h3>
+<p>What number of customers will be exceeded 10% of the time?</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">answer_4b &lt;-<span class="st"> </span><span class="kw">qnorm</span>(<span class="fl">0.1</span>,<span class="dt">mean =</span> <span class="dv">250</span>,<span class="dt">sd =</span> <span class="dv">80</span>,<span class="dt">lower.tail =</span> <span class="ot">FALSE</span>)
+<span class="kw">print</span>(answer_4b)</code></pre></div>
+<pre><code>## [1] 352.5241</code></pre>
+<p>The answer is <strong>352.5241252</strong></p>
+</div>
+<div id="question-4c" class="section level3">
+<h3><span class="header-section-number">9.4.3</span> Question 4c</h3>
+<p>What fraction of days will have between 200 and 300 customers? (200 &lt; X≤ 300)</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">answer_4c &lt;-<span class="st"> </span><span class="kw">diff</span>(<span class="kw">pnorm</span>(<span class="kw">c</span>(<span class="dv">200</span>,<span class="dv">300</span>),<span class="dt">mean =</span> <span class="dv">250</span>,<span class="dt">sd =</span> <span class="dv">80</span>))
+<span class="kw">print</span>(answer_4c)</code></pre></div>
+<pre><code>## [1] 0.4680289</code></pre>
+<p>The answer is <strong>0.4680289</strong></p>
+</div>
+<div id="question-4d" class="section level3">
+<h3><span class="header-section-number">9.4.4</span> Question 4d</h3>
+<p>Plot the density function and create the shaded area between 200 and 300 customers.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">curve</span>(<span class="kw">dnorm</span>(x,<span class="dt">mean =</span> <span class="dv">250</span>,<span class="dt">sd =</span> <span class="dv">80</span>),<span class="dt">from =</span> <span class="dv">0</span>,<span class="dt">to =</span> <span class="dv">500</span>)
+cord.x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">200</span>,<span class="kw">seq</span>(<span class="dv">200</span>,<span class="dv">300</span>,<span class="dt">by =</span> <span class="dv">1</span>),<span class="dv">300</span>)
+cord.y &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">0</span>,<span class="kw">dnorm</span>(<span class="kw">seq</span>(<span class="dv">200</span>,<span class="dv">300</span>,<span class="dt">by =</span> <span class="dv">1</span>),<span class="dt">mean =</span> <span class="dv">250</span>,<span class="dt">sd =</span> <span class="dv">80</span>),<span class="dv">0</span>)
+<span class="kw">polygon</span>(cord.x,cord.y,<span class="dt">col=</span><span class="st">&quot;red&quot;</span>)</code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-104-1.png" width="672" /></p>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="lab-multiple-regression.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"facebook": true,
+"twitter": true,
+"google": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    if (location.protocol !== "file:" && /^https?:/.test(script.src))
+      script.src  = script.src.replace(/^https?:/, '');
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
